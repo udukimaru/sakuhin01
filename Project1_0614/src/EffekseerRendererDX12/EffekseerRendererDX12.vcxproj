@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FC540628-D46B-3129-B8FB-2B7FE0B5D2B4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>EffekseerRendererDX12</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">EffekseerRendererDX12.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">EffekseerRendererDX12d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">EffekseerRendererDX12.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">EffekseerRendererDX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">EffekseerRendererDX12.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">EffekseerRendererDX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">EffekseerRendererDX12.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">EffekseerRendererDX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatSpecificWarningsAsErrors>4267;4456;4458;4715</TreatSpecificWarningsAsErrors>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatSpecificWarningsAsErrors>4267;4456;4458;4715</TreatSpecificWarningsAsErrors>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatSpecificWarningsAsErrors>4267;4456;4458;4715</TreatSpecificWarningsAsErrors>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatSpecificWarningsAsErrors>4267;4456;4458;4715</TreatSpecificWarningsAsErrors>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\EffekseerForCpp170a\src\Effekseer;C:\EffekseerForCpp170a\src\include;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\Effekseer;C:\EffekseerForCpp170a\src\EffekseerRendererDX12\..\3rdparty\LLGI\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/EffekseerForCpp170a/src/EffekseerRendererDX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/EffekseerForCpp170a -BC:/EffekseerForCpp170a/build_msvc2022 --check-stamp-file C:/EffekseerForCpp170a/build_msvc2022/src/EffekseerRendererDX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/EffekseerForCpp170a/src/EffekseerRendererDX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/EffekseerForCpp170a -BC:/EffekseerForCpp170a/build_msvc2022 --check-stamp-file C:/EffekseerForCpp170a/build_msvc2022/src/EffekseerRendererDX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/EffekseerForCpp170a/src/EffekseerRendererDX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/EffekseerForCpp170a -BC:/EffekseerForCpp170a/build_msvc2022 --check-stamp-file C:/EffekseerForCpp170a/build_msvc2022/src/EffekseerRendererDX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/EffekseerForCpp170a/src/EffekseerRendererDX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/EffekseerForCpp170a -BC:/EffekseerForCpp170a/build_msvc2022 --check-stamp-file C:/EffekseerForCpp170a/build_msvc2022/src/EffekseerRendererDX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\EffekseerForCpp170a\build_msvc2022\src\EffekseerRendererDX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.CommonUtils.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.CommonUtils.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.DDSTextureLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.DDSTextureLoader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.IndexBufferBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.IndexBufferBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ModelRendererBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ModelRendererBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RenderStateBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RenderStateBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer_Impl.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer_Impl.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RibbonRendererBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RibbonRendererBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RingRendererBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RingRendererBase.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ShaderBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.SpriteRendererBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.SpriteRendererBase.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.StandardRenderer.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TGATextureLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TGATextureLoader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TrackRendererBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TrackRendererBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.VertexBufferBase.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.VertexBufferBase.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\ModelLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\ModelLoader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\TextureLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\TextureLoader.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\EffekseerRendererDX12.Base.Pre.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\EffekseerRendererDX12.Base.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\EffekseerRendererDX12.Renderer.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_distortion_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_distortion_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_lit_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_lit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_unlit_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_model_unlit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_sprite_distortion_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_sprite_lit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\ad_sprite_unlit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_distortion_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_distortion_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_lit_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_lit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_unlit_ps.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\model_unlit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\sprite_distortion_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\sprite_lit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\ShaderHeader\sprite_unlit_vs.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRendererDX12.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\DirectX12\EffekseerMaterialCompilerDX12.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX12\EffekseerRenderer\EffekseerRendererDX12.Renderer.cpp" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\DirectX12\EffekseerMaterialCompilerDX12.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\HLSLGenerator\ShaderGenerator.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\HLSLGenerator\ShaderGenerator.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\Common\ShaderGeneratorCommon.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\Common\ShaderGeneratorCommon.cpp" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\Common.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\Common.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Base.Pre.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Base.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.DeviceObject.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.DeviceObject.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.IndexBuffer.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.IndexBuffer.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.MaterialLoader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.MaterialLoader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.ModelRenderer.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.ModelRenderer.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.RenderState.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.RenderState.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Renderer.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Renderer.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.RendererImplemented.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Shader.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.Shader.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.VertexBuffer.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\EffekseerRendererLLGI.VertexBuffer.h" />
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\GraphicsDevice.cpp" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererLLGI\GraphicsDevice.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\EffekseerForCpp170a\build_msvc2022\ZERO_CHECK.vcxproj">
+      <Project>{71176CFB-A8FE-3852-9ACA-B609ACB3579D}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\EffekseerForCpp170a\build_msvc2022\src\Effekseer\Effekseer.vcxproj">
+      <Project>{0617156E-40CB-3AC6-901E-07D17703C701}</Project>
+      <Name>Effekseer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\EffekseerForCpp170a\build_msvc2022\src\3rdParty\LLGI\src\LLGI.vcxproj">
+      <Project>{B9D70B82-5495-3E08-9C29-C5A0420FC451}</Project>
+      <Name>LLGI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

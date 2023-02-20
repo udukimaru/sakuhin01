@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\EffekseerForCpp170a\Examples\OpenGL\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\Examples\OpenGL\DeviceGLFW.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\EffekseerForCpp170a\Examples\OpenGL\DeviceGLFW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\EffekseerForCpp170a\Examples\OpenGL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{994594AF-401E-387F-A6AA-51B6C26C0213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5ABE0E59-EA9C-3F0D-8110-A4E4FB57B41C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

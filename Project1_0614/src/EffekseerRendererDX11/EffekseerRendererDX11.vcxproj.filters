@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.CommonUtils.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.DDSTextureLoader.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.IndexBufferBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ModelRendererBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RenderStateBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer_Impl.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RibbonRendererBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RingRendererBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.SpriteRendererBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TGATextureLoader.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TrackRendererBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.VertexBufferBase.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\ModelLoader.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\TextureLoader.cpp">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.DeviceObject.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.IndexBuffer.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.MaterialLoader.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.ModelRenderer.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.RenderState.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Shader.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.VertexBuffer.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\GraphicsDevice.cpp">
+      <Filter>EffekseerRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\DirectX11\EffekseerMaterialCompilerDX11.cpp">
+      <Filter>..\EffekseerMaterialCompiler\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\HLSLGenerator\ShaderGenerator.cpp">
+      <Filter>..\EffekseerMaterialCompiler\HLSLGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\Common\ShaderGeneratorCommon.cpp">
+      <Filter>..\EffekseerMaterialCompiler\Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.CommonUtils.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.DDSTextureLoader.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.IndexBufferBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ModelRendererBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RenderStateBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.Renderer_Impl.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RibbonRendererBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.RingRendererBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.ShaderBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.SpriteRendererBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.StandardRenderer.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TGATextureLoader.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.TrackRendererBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\EffekseerRenderer.VertexBufferBase.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\ModelLoader.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererCommon\TextureLoader.h">
+      <Filter>EffekseerRendererCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Base.Pre.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Base.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.DeviceObject.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.IndexBuffer.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.MaterialLoader.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.ModelRenderer.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.RenderState.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Renderer.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.RendererImplemented.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.Shader.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\EffekseerRendererDX11.VertexBuffer.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\GraphicsDevice.h">
+      <Filter>EffekseerRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_distortion_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_distortion_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_lit_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_lit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_unlit_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_model_unlit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_sprite_distortion_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_sprite_lit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\ad_sprite_unlit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_distortion_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_distortion_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_lit_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_lit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_unlit_ps.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\model_unlit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\sprite_distortion_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\sprite_lit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRenderer\ShaderHeader\sprite_unlit_vs.h">
+      <Filter>EffekseerRenderer\ShaderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\EffekseerRendererDX11.h" />
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\DirectX11\EffekseerMaterialCompilerDX11.h">
+      <Filter>..\EffekseerMaterialCompiler\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\HLSLGenerator\ShaderGenerator.h">
+      <Filter>..\EffekseerMaterialCompiler\HLSLGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\EffekseerForCpp170a\src\EffekseerMaterialCompiler\Common\ShaderGeneratorCommon.h">
+      <Filter>..\EffekseerMaterialCompiler\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\EffekseerForCpp170a\src\EffekseerRendererDX11\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{8B9525B8-5EFF-38C4-AC06-CBF67D2D292A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EffekseerMaterialCompiler">
+      <UniqueIdentifier>{F225F78D-5CE6-369C-BC4F-F80D5A6500D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EffekseerMaterialCompiler\Common">
+      <UniqueIdentifier>{1E9C3B13-C92C-3D8E-B727-7BAF6E7DD6E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EffekseerMaterialCompiler\DirectX11">
+      <UniqueIdentifier>{7D8D3D71-B914-3A28-A5E7-7A84BF5E8001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EffekseerMaterialCompiler\HLSLGenerator">
+      <UniqueIdentifier>{DF923AFC-AC92-34D8-8BFB-732DC93DD316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EffekseerRenderer">
+      <UniqueIdentifier>{05DE81E4-81CE-3F3E-8EE6-8D46AC1EA47B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EffekseerRendererCommon">
+      <UniqueIdentifier>{2FCE8EFE-0CD1-33FF-8E1A-D57D6EB02506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EffekseerRenderer\ShaderHeader">
+      <UniqueIdentifier>{FB138480-0A44-308A-929C-32BF05AFBAE8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

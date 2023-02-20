@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\EffekseerForCpp170a\build_msvc2022\CMakeFiles\bd407ee6babdc953df877098c5f566fe\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{63E67D39-42CA-37E8-A03E-A5B240DA84F9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

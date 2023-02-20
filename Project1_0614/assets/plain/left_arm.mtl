@@ -1,0 +1,8 @@
+newmtl blinn4SG
+map_Kd poke_tex2.png
+illum 4
+Kd 0.65 0.25 1.00
+Ka 0.67 0.67 0.67
+Tf 0.33 0.33 0.33
+Ni 1.00
+Ks 0.64 0.64 0.64

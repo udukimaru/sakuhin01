@@ -1,0 +1,40 @@
+newmtl blinn1SG
+illum 4
+Kd 0.93 0.57 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.58 0.58 0.58
+map_Kd test5.png
+newmtl blinn2SG
+illum 4
+Kd 0.62 0.09 1.00
+Ka 1.00 1.00 1.00
+Tf 0.23 0.23 0.23
+Ni 1.00
+Ks 0.85 0.85 0.85
+map_Kd test5.png
+newmtl blinn3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+map_Kd test5.png
+newmtl blinn4SG
+illum 4
+Kd 0.65 0.25 1.00
+Ka 0.67 0.67 0.67
+Tf 0.33 0.33 0.33
+Ni 1.00
+Ks 0.64 0.64 0.64
+map_Kd test5.png
+newmtl blinn5SG
+illum 4
+Kd 0.99 0.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.94 0.94 0.94
+map_Kd test5.png
