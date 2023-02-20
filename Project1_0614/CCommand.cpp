@@ -3,6 +3,8 @@
 #include "CCollider.h"
 #include "CDirectInput.h"*/
 
+//test
+
 CCommand::COMMAND_ID CCommand::ChangeCommand(COMMAND_ID id)
 {
 	current_buttun = id;
