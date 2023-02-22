@@ -23,11 +23,13 @@ void CBattleUI::myHPVib_Update()
 	uilist[1].color.x = 1.0f;
 	uilist[1].color.y = 0.0f;
 }
-void CBattleUI::HPVib_Update(float pos)
+void CBattleUI::HPVib_Update(std::vector<UI_List> &list, int i)
 {
 	sin_t += 0.1f;
-	pos = pos + CEasing::GetInstance().SinVibe(10, 8, sin_t);
-	printf("%f\n", pos);
+	list[i].y = list[i].y + CEasing::GetInstance().SinVibe(10, 8, sin_t);
+	printf("%f\n", list[i].y);
+	list[i].color.x = 1.0f;
+	list[i].color.y = 0.0f;
 }
 
 //void CBattleUI::Init()
@@ -93,7 +95,7 @@ void CBattleUI::Draw()
 				battleui_data[i].updateVertex(uilist[i].width, uilist[i].height, uilist[i].color, uilist[i].uv);
 				battleui_data[i].updateVbuffer();
 				battleui_data[i].SetScale(uilist[i].size.x, uilist[i].size.y, 0);
-				battleui_data[i].SetPosition(uilist[i].x, enemyHPpos.y, 0);
+				battleui_data[i].SetPosition(uilist[i].x, uilist[i].y, 0);
 				battleui_data[i].Draw();
 			}
 		}
@@ -105,6 +107,16 @@ void CBattleUI::Update()
 	if (uilist[0].active == true) {
 		uilist[0].t += 0.01f;
 		uilist[0].y = uilist[0].y+CEasing::GetInstance().SinVibe(0.5f, 4, uilist[0].t);
+	}
+}
+
+void CBattleUI::HPCal(float damage, float maxhp, float hp, std::vector<UI_List>& list, int i)
+{
+	damage--;
+	if (damage > 0) {
+		hp -= 1.0f;
+		list[i].size.x = 1.0f * (hp / maxhp);
+		list[i].x = list[i].x - (1.0f + 0.1f);
 	}
 }
 

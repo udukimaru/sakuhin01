@@ -166,7 +166,6 @@ void test(CCommand* com)
 	command->g_baglist[0].active = true;
 }
 
-
 void DrawHP()
 {
 	//plain_damage = DamageDraw();// たぶんこれが悪い
@@ -184,7 +183,6 @@ void DrawHP()
 }
 void DrawHPDog()
 {
-	//plain_damage = DamageDraw();// たぶんこれが悪い
 	dog_damage--;
 	if (dog_damage > 0 && drawhpdog == true) {
 		g_monster2.HP -= 1.0f;
@@ -200,36 +198,32 @@ void DrawHPDog()
 
 void Battle::TurnAction()
 {
-	if (m_TextKeepTime >= 0&& m_TextKeepTime <= 180)
+	m_TextKeepTime++;
+	if (m_TextKeepTime >= 0&& m_TextKeepTime <= 50)
 	{
 		textbox[4].text_active = true;
 	}
-	if (++m_TextKeepTime >= 200 && m_TextKeepTime <= 249)
+	if (m_TextKeepTime >= 51 && m_TextKeepTime <= 60)
 	{
 		///////////////////////////////////////////////
 		// 攻撃モーション開始
 		g_monster2.BattleUpdate();
 		printf("motion");
-
 	    //////////////////////////////////////////////
 	}
-	if (++m_TextKeepTime >= 252&&m_TextKeepTime<=253)
+	if (m_TextKeepTime >= 61&&m_TextKeepTime<=62)
 	{
 		g_monster2.SetPos({ g_monster2.GetPos().x,g_monster2.GetPos().y,-5 });
 		TextClear();
 		drawhp = true;
 		plain_damage = g_monster2.AttackDamage();
 	}
-	if (++m_TextKeepTime >= 255 && m_TextKeepTime <= 257)
-	{
-		//
-	}
 	// モーション終われば遷移
-	if (++m_TextKeepTime >= 500 && m_TextKeepTime <= 700)
+	if (m_TextKeepTime >= 120 && m_TextKeepTime <= 140)
 	{
 		textbox[3].text_active = true;
 	}
-	if (++m_TextKeepTime >= 1000)
+	if (m_TextKeepTime >= 200)
 	{
 		TextClear();
 		current_turn = TURN_ID::MY_TURN_END;
@@ -512,10 +506,6 @@ void Battle::Update()
 		CCamera::GetInstance()->AutoCamera();
 
 		g_ui.IsActive(g_ui.g_buttunlist, true);
-		/*for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
-		{
-			g_ui.g_buttunlist[i].active = true;
-		}*/
 		textbox[5].text_active = true;
 		
 		g_ui.Update();
@@ -800,7 +790,7 @@ void Battle::Update()
 		{
 			DrawHP();
 			//Vibration(myHPposX2.y);
-			battle_ui.EnemyHPVib_Update(); 
+			battle_ui.HPVib_Update(battle_ui.uilist,3);
 			//TestTest();
 		}
 		else
@@ -845,7 +835,7 @@ void Battle::Update()
 			DrawHPDog();
 			//Vibration(dogHPpos.y);
 			//TestTest2();
-			battle_ui.myHPVib_Update();
+			battle_ui.HPVib_Update(battle_ui.uilist,1);
 		}
 		else
 		{
