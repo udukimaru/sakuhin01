@@ -118,7 +118,6 @@ void GameUpdate(uint64_t dt) {
 		pl.Update();
 		plain.Update();
 	}
-	////////////////////////////////////////////////////////////////////////////
 	// タイトル画面→バトルシーン
 	if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_W)) {
 		if (g_manager.GetCurrentSceneKey() == "TitleScene") {
@@ -136,20 +135,7 @@ void GameUpdate(uint64_t dt) {
 			g_manager.changeScene<Battle>("BattleScene", 1000, false);
 		}
 	}
-	//////////////////////////////////////////////////////////////////////////
 
-
-	/*if (plain.isActive == false && g_manager.GetCurrentSceneKey() == "BattleScene")
-	{
-		g_manager.changeScene<Encounter>("Encount", 1000, false);
-	}*/
-
-		/*else if (plain.isActive == false && g_manager.GetCurrentSceneKey() == "BattleScene"&& is_finish == true)
-		{
-			g_manager.changeScene<Encounter>("Encounter", 1000, false);
-		}*/
-	//bool isFinish = battle.FinishBattle();
-	//if (is_finish == true) {
 	// カーソル位置取得
 	XMFLOAT2 cursor_pos = {};
 	cursor_pos.x = CDirectInput::GetInstance().GetMousePosX();
@@ -159,7 +145,7 @@ void GameUpdate(uint64_t dt) {
 
 	// カレントシーンを更新
 	g_manager.Update();
-	if (CCollider::Col(exitpos, 220, 120, cursor_pos)&& change==true)
+	if (CCollider::Col(exitpos, 220, 120, cursor_pos)&& battle.FinishBattle() == true)
 	{
 
 		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())

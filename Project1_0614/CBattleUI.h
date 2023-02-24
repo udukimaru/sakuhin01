@@ -59,13 +59,15 @@ public:
 
 	void EnemyHPVib_Update();
 	void myHPVib_Update();
-	void HPVib_Update(float pos);
+	void HPVib_Update(std::vector<UI_List> &list,int i);
 
 	void Init();
 	void Draw();
 	void Update();
 	//void CreateUI(UI_ID type, float x, float y, float z, float xsize, float ysize, DirectX::XMFLOAT4 color);
-	
+
+	void HPCal(float damage, float maxhp,float hp, std::vector<UI_List>& list,int i);
+
 
 	
 	bool IsActive() {

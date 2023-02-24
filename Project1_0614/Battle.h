@@ -19,10 +19,10 @@ public:
 	void Update();
 	void Dispose();
 
-	/*bool FinishBattle()
+	bool FinishBattle()
 	{
-		return is_finish;
-	}*/
+		return &is_finish;
+	}
 
 
 	/*static Battle& GetInstance() {
