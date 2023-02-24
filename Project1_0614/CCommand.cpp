@@ -270,7 +270,8 @@ void CCommand::Update()
 	{
 		if (g_monsterlist[i].active == true)
 		{
-			//f (i > 1) {
+			//g_monsterlist[i].wait = true;
+			
 			g_monsterlist[i].size.x += 0.05f;
 			g_monsterlist[i].size.y += 0.05f;
 			g_monsterlist[i].color.w += 0.03f;
@@ -284,7 +285,7 @@ void CCommand::Update()
 			{
 				g_monsterlist[i].color.w = 1.0f;
 			}
-			//}
+			
 		}
 		else break;
 	}

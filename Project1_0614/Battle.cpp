@@ -205,11 +205,9 @@ void Battle::TurnAction()
 	}
 	if (m_TextKeepTime >= 51 && m_TextKeepTime <= 60)
 	{
-		///////////////////////////////////////////////
 		// 攻撃モーション開始
 		g_monster2.BattleUpdate();
 		printf("motion");
-	    //////////////////////////////////////////////
 	}
 	if (m_TextKeepTime >= 61&&m_TextKeepTime<=62)
 	{
@@ -264,12 +262,7 @@ void Battle::EnemyTurnBattle()
 	// モーション終われば遷移
 	if (++m_TextKeepTime >= 500 && m_TextKeepTime <= 700)
 	{
-		//g_plain.SetPos({ g_plain.GetPos().x,g_plain.GetPos().y,10 });
-		//DrawDamage(damage);
 		textbox[3].text_active = true;
-		//action_list = ACTIONLIST::DAMAGE;
-		//TextClear();
-		//current_turn = TURN_ID::MY_TURN_END;
 	}
 	
 	if (++m_TextKeepTime >= 1000)
@@ -289,14 +282,6 @@ void Battle::Init()
 	g_monster2.Init();
 	g_skydome.Init();
 	stage.Init();
-
-	//XMFLOAT2 uv2D[4] = {
-	//		{0.0f,0.0f},
-	//		{1.0f,0.0f},
-	//		{0.0f,1.0f},
-	//		{1.0f,1.0f}
-
-	//};
 
 	g_ui.InitButton();
 	battle_ui.Init();
@@ -327,33 +312,6 @@ void Battle::Input()
 	CDirectInput::GetInstance().GetKeyBuffer();
 	CDirectInput::GetInstance().GetMouseState();
 }
-
-//void TextDraw()
-//{
-//	if (textbox[0].text_active == true) {
-//
-//		char name[20] = "プレイン";
-//		write->DrawString(("%s", name), XMFLOAT2(200, 580), D2D1_DRAW_TEXT_OPTIONS_NONE);
-//		for (int i = 0; i < textbox[0].text.length(); i++)
-//		{
-//			//int cnt = 0;
-//			clock_t start = 0, end = 0;
-//			start = clock();
-//			if (((end - start)) >= 70)
-//			{
-//				std::cout << name[i] << std::endl;
-//				write->DrawString(textbox[0].text, XMFLOAT2(330, 580), D2D1_DRAW_TEXT_OPTIONS_NONE);
-//				//cnt++;
-//				i++;
-//				start = end;
-//			}
-//			end = clock();
-//		}
-//		//ShowString(textbox[0].text);
-//		write->DrawString("いけ！イッヌ！", XMFLOAT2(200, 640), D2D1_DRAW_TEXT_OPTIONS_NONE);
-//	}
-//}
-
 
 void Battle::Draw()
 {
@@ -389,8 +347,6 @@ void Battle::Draw()
 	if (textbox[0].text_active == true) {
 		
 		write->DrawString("プレイン", XMFLOAT2(200, textbox[0].pos.y), D2D1_DRAW_TEXT_OPTIONS_NONE);
-
-		//write->DrawString(textbox[0].text, XMFLOAT2(330, 580), D2D1_DRAW_TEXT_OPTIONS_NONE);
 	}
 
 	for (int i = 0; i < textbox.size(); i++)
@@ -480,7 +436,6 @@ void Battle::Update()
 		if (m_TextKeepTime <= 0)
 		{
 			eye={ 15, 6, -18 };
-			//lookat = CCamera::GetInstance()->GetLookat();
 			lookat = { 0,0, 7.5f };
 
 			CCamera::GetInstance()->SetEye(eye);
@@ -510,115 +465,33 @@ void Battle::Update()
 		
 		g_ui.Update();
 
-		//for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
-		//{
-					// UIのposまとめたーーーい
-				/*XMFLOAT2 pos1 = { g_ui.BattleaPos[3],g_ui.g_buttunlist[3].y };
-				XMFLOAT2 pos2 = { g_ui.BattleaPos[0],g_ui.g_buttunlist[0].y };
-				XMFLOAT2 pos3 = { g_ui.BattleaPos[1],g_ui.g_buttunlist[1].y };
-				XMFLOAT2 pos4 = { g_ui.BattleaPos[2],g_ui.g_buttunlist[2].y };*/
+		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 0)
+		{
+			// 技選択へ
+			current_turn = TURN_ID::COMMAND_SKILL;
+			printf("たたかう\n");
+			g_ui.SetStartPos(g_ui.g_skilllist);
+		}
+		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 1)
+		{
+			// モンスター画面へ
+			current_turn = TURN_ID::MONSTER;
+			printf("モンスター\n");
+			g_ui.SetStartFade(g_ui.g_monsterlist);
+		}
+		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 2)
+		{
+			// バッグ画面へ
+			current_turn = TURN_ID::BAG;
+			printf("バッグ\n");
+		}
+		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 3)
+		{
+			// にげる
+			current_turn = TURN_ID::EXIT;
+			printf("にげる\n");
+		}
 
-
-				if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 0)
-				{
-					// 技選択へ
-					current_turn = TURN_ID::COMMAND_SKILL;
-					printf("たたかう\n");
-					g_ui.SetStartPos(g_ui.g_skilllist);
-					//g_ui.g_buttunlist[i].active = false;
-				}
-				if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 1)
-				{
-					// モンスター画面へ
-					current_turn = TURN_ID::MONSTER;
-					printf("モンスター\n");
-					g_ui.SetStartFade(g_ui.g_monsterlist);
-				}
-				if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 2)
-				{
-					// バッグ画面へ
-					current_turn = TURN_ID::BAG;
-					printf("バッグ\n");
-					//g_ui.SetStartSkillPos();
-					//g_ui.g_buttunlist[i].active = false;
-				}
-				if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 3)
-				{
-					// にげる
-					current_turn = TURN_ID::EXIT;
-					printf("にげる\n");
-					//g_ui.SetStartSkillPos();
-					//g_ui.g_buttunlist[i].active = false;
-				}
-
-				//// たたかう
-				//if (CCollider::Col(pos2, g_ui.g_buttunlist[0].width, g_ui.g_buttunlist[0].height, cursor_pos) && g_ui.g_buttunlist[0].active == true&& g_ui.g_buttunlist[0].wait==true&&pos2.x<= g_ui.g_buttunlist[0].x+10)
-				//{
-				//	g_ui.g_buttunlist[0].on_off = true;
-				//	if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-				//	{
-				//		current_turn = TURN_ID::COMMAND_SKILL;
-				//		printf("たたかう");
-				//		g_ui.SetStartSkillPos();
-				//		g_ui.g_buttunlist[0].active = false;
-				//	}
-				//}
-				//else {
-				//	g_ui.g_buttunlist[0].on_off = false;
-				//}
-				//// モンスター
-				//if (CCollider::Col(pos3, g_ui.g_buttunlist[1].width, g_ui.g_buttunlist[1].height, cursor_pos) && g_ui.g_buttunlist[1].active == true && g_ui.g_buttunlist[1].wait == true && pos3.x <= g_ui.g_buttunlist[1].x + 10)
-				//{
-				//	g_ui.g_buttunlist[1].on_off = true;
-				//	if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-				//	{
-				//		current_turn = TURN_ID::MONSTER;
-				//		printf("てもちモンスター");
-				//	}
-				//}
-				//else {
-				//	g_ui.g_buttunlist[1].on_off = false;
-				//}
-				//// もちもの
-				//if (CCollider::Col(pos4, g_ui.g_buttunlist[2].width, g_ui.g_buttunlist[2].height, cursor_pos) && g_ui.g_buttunlist[2].active == true && g_ui.g_buttunlist[2].wait == true && pos4.x <= g_ui.g_buttunlist[2].x + 10)
-				//{
-				//	g_ui.g_buttunlist[2].on_off = true;
-				//	if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-				//	{
-				//		//CCommand::GetInstance()->current_buttun = CCommand::BUTTUN_ID::BAG;
-				//		current_turn = TURN_ID::BAG;/*
-				//		textbox[5].text_active = false;
-				//		textbox[2].text_active = true;*/
-				//		printf("もちもの");
-				//	}
-				//}
-				//else {
-				//	g_ui.g_buttunlist[2].on_off = false;
-				//}
-
-				//// にげる
-				//if (CCollider::Col(pos1, g_ui.g_buttunlist[3].width, g_ui.g_buttunlist[3].height, cursor_pos) && g_ui.g_buttunlist[3].active == true && g_ui.g_buttunlist[3].wait == true && pos1.x <= g_ui.g_buttunlist[3].x+10)
-				//{
-				//	g_ui.g_buttunlist[3].on_off = true;
-				//	if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-				//	{
-				//		is_finish = true;
-				//		//g_plain.isActive = false;
-				//		//CCommand::GetInstance()->current_buttun = CCommand::BUTTUN_ID::EXIT;
-				//		//current_turn = TURN_ID::EXIT;
-				//		for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
-				//		{
-				//			g_ui.g_buttunlist[i].active = false;
-				//		}
-				//		//CSceneMgr::GetInstance()->ChangeScene(CSceneMgr::SCENE_ID::ENCOUNTER);
-				//		
-				//		printf("にげる");
-				//	}
-				//}
-				//else {
-				//	g_ui.g_buttunlist[3].on_off = false;
-				//}
-		//}
 		break;
 	case TURN_ID::COMMAND_SKILL:
 		eye = { 15, 6, -18 };
@@ -682,87 +555,7 @@ void Battle::Update()
 			}
 			g_ui.SetStartPos(g_ui.g_buttunlist);
 		}
-		//XMFLOAT2 pos1 = { g_ui.g_skilllist[0].x,g_ui.g_skilllist[0].y };
-		//XMFLOAT2 pos2 = { g_ui.g_skilllist[1].x,g_ui.g_skilllist[1].y };
-		//XMFLOAT2 pos3 = { g_ui.g_skilllist[2].x,g_ui.g_skilllist[2].y };
-		//// わざ1
-		//	if (CCollider::Col(pos1, 270, 120, cursor_pos) && g_ui.g_skilllist[0].active == true && g_ui.g_skilllist[0].wait==true && pos1.x <= g_ui.g_skilllist[0].x + 10)
-		//	{
-		//		g_ui.g_skilllist[0].on_off = true;
-		//		//what = false; 
-		//		textbox[5].text_active = false;
-		//		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-		//		{
-		//			for (int i = 0; i < textbox.size(); i++)
-		//			{
-		//				textbox[i].text_active = false;
-		//			}
-		//			printf("わざ");
-		//			current_turn = TURN_ID::CHHECK_SPEED;
-		//		}
-		//	}
-		//	else
-		//	{
-		//		g_ui.g_skilllist[0].on_off = false;
-		//	}
-		//	// わざ2
-		//	if (CCollider::Col(pos2, 270, 120, cursor_pos) && g_ui.g_skilllist[1].active == true && g_ui.g_skilllist[1].wait == true && pos2.x <= g_ui.g_skilllist[1].x + 10)
-		//	{
-		//		g_ui.g_skilllist[1].on_off = true;
-		//		//what = false;
-		//		textbox[5].text_active = false;
 
-		//		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-		//		{
-		//			for (int i = 0; i < textbox.size(); i++)
-		//			{
-		//				textbox[i].text_active = false;
-		//			}
-		//			printf("わざ");
-		//			/*for (int i = 0; i < g_uibattle.g_skilllist.size(); i++)
-		//			{
-		//				g_uibattle.g_skilllist[i].active = false;
-		//			}*/
-		//			//batletet = true;
-		//			current_turn = TURN_ID::CHHECK_SPEED;
-		//		}
-		//	}
-		//	else
-		//	{
-		//		g_ui.g_skilllist[1].on_off = false;
-		//	}
-		//	// もどるボタンが押されたらSELECTへ
-		//	if (CCollider::Col(pos3, 120, 80, cursor_pos) && g_ui.g_skilllist[2].active == true && g_ui.g_skilllist[2].wait == true && pos3.x <= g_ui.g_skilllist[2].x + 10)
-		//	{
-		//		g_ui.g_skilllist[2].on_off = true;
-		//		//what = false;
-		//		textbox[5].text_active = false;
-		//		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-		//		{
-		//			for (int i = 0; i < textbox.size(); i++)
-		//			{
-		//				textbox[2].text_active = false;
-		//				//what = true;
-		//				textbox[5].text_active = true;;
-		//			}
-		//			printf("もどる");
-		//			for (int i = 0; i < g_ui.g_skilllist.size(); i++)
-		//			{
-		//				g_ui.g_skilllist[i].active = false;
-		//			}
-		//			//batletet = true;
-		//			g_ui.SetStartPos(g_ui.g_buttunlist);
-		//			current_turn = TURN_ID::SELLECT;
-		//			//is_select = true;
-		//		}
-		//	}
-		//	else
-		//	{
-		//		g_ui.g_skilllist[2].on_off = false;
-		//	}
-
-
-		
 		break;
 	case TURN_ID::CHHECK_SPEED:
 		g_ui.IsActive(g_ui.g_skilllist, false);
@@ -833,8 +626,6 @@ void Battle::Update()
 		if (drawhpdog == true)
 		{
 			DrawHPDog();
-			//Vibration(dogHPpos.y);
-			//TestTest2();
 			battle_ui.HPVib_Update(battle_ui.uilist,1);
 		}
 		else
@@ -887,13 +678,7 @@ void Battle::Update()
 
 		g_ui.IsActive(g_ui.g_buttunlist, false);
 		g_ui.IsActive(g_ui.g_baglist, true);
-		/*for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
-		{
-			g_ui.g_buttunlist[i].active = false;
-		}
-		for (int i = 0; i < g_ui.g_baglist.size(); i++) {
-			g_ui.g_baglist[i].active = true;
-		}*/
+
 		for (int i = 1; i < battle_ui.uilist.size(); i++) {
 			battle_ui.uilist[i].active = false;
 		}
@@ -955,11 +740,11 @@ void Battle::Update()
 
 
 
+			g_ui.g_monsterlist[0].wait = true;
 			 //もどるボタンが押されたらSELECTへ
 			if (g_ui.CheckOnOff(g_ui.g_monsterlist) == 0)
 			{
 				textbox[5].text_active = true;;
-
 				printf("もどる");
 				g_ui.IsActive(g_ui.g_monsterlist, false);
 
@@ -970,34 +755,7 @@ void Battle::Update()
 				current_turn = TURN_ID::SELLECT;
 				g_ui.SetStartPos(g_ui.g_buttunlist);
 			}
-			if (CCollider::Col(pos, g_ui.g_monsterlist[0].width, g_ui.g_monsterlist[0].height, cursor_pos) && g_ui.g_monsterlist[0].active == true)
-			{
-				g_ui.g_monsterlist[0].on_off = true;
-				//g_ui.g_monsterlist[1].active = true;
-				//what = false;
-				//textbox[5].text_active = false;
-				if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-				{
-					textbox[5].text_active = true;;
-					
-					printf("もどる");
-					for (int i = 0; i < g_ui.g_monsterlist.size(); i++)
-					{
-						g_ui.g_monsterlist[i].active = false;
-					}
-					for (int i = 1; i < battle_ui.uilist.size(); i++) {
-						battle_ui.uilist[i].active = true;
-					}
-					//batletet = true;
-					current_turn = TURN_ID::SELLECT;
-					g_ui.SetStartPos(g_ui.g_buttunlist);
-					//g_ui.SetStartMonsterSize();
-				}
-			}
-			else
-			{
-				g_ui.g_monsterlist[0].on_off = false;
-			}
+		
 		break;
 	case TURN_ID::FINISH:
 		// バトル時のUIをオフにする
@@ -1077,6 +835,8 @@ void Battle::Update()
 	case TURN_ID::EXIT:
 		// エンカウンターに戻る
 		is_finish = true;
+		/*XMFLOAT3 pl_pos = { g_player.GetPos().x,g_player.GetPos().y,g_player.GetPos().z +10};
+		g_player.SetPos(pl_pos);*/
 		//b_SceneMgr.changeScene<Encounter>("Encount", 2000, false);
 		break;
     }
@@ -1098,6 +858,6 @@ void Battle::Dispose()
 	//battle_buttun.UnInit();
 	write->Release();
 
-	imguiExit();
+	//imguiExit();
 	DX11Uninit();
 }

@@ -82,106 +82,12 @@ public:
 		bool on_off;
 		bool wait;
 	};
-
 	using ButtunDataList = UIData<COMMAND_ID>;
 	using SkillDataList = UIData<COMMAND_SKILL>;
 	using MonsterDataList = UIData<COMMAND_MONSTER>;
 	using BagDataList = UIData<COMMAND_BAG>;
 	using FinSelectDataList = UIData<COMMAND_FINISH>;
 
-
-	/* typedef struct ButtunDataList
-	 {
-		 COMMAND_ID id;
-		 const char* texfolder;
-		 float x;
-		 float y;
-		 float width;
-		 float height;
-		 DirectX::XMFLOAT2 size;
-		 DirectX::XMFLOAT4 color = { 1,1,1,1 };
-		 bool active;
-		 XMFLOAT2 uv_off[4];
-		 XMFLOAT2 uv_on[4];
-		 float t;
-		 bool on_off;
-		 bool wait;
-	 };
-
-	 typedef struct SkillDataList
-	 {
-		 COMMAND_SKILL id;
-		 const char* texfolder;
-		 float x;
-		 float y;
-		 float width;
-		 float height;
-		 DirectX::XMFLOAT2 size;
-		 DirectX::XMFLOAT4 color = { 1,1,1,1 };
-		 bool active;
-		 XMFLOAT2 uv_off[4];
-		 XMFLOAT2 uv_on[4];
-		 float t;
-		 bool on_off;
-		 bool wait;
-	 };
-
-	 typedef struct MonsterDataList
-	 {
-		 COMMAND_MONSTER id;
-		 const char* texfolder;
-		 float x;
-		 float y;
-		 float width;
-		 float height;
-		 DirectX::XMFLOAT2 size;
-		 DirectX::XMFLOAT4 color = { 1,1,1,1 };
-		 bool active;
-		 XMFLOAT2 uv_off[4];
-		 XMFLOAT2 uv_on[4];
-		 float t;
-		 bool on_off;
-	 };
-
-	 typedef struct BagDataList
-	 {
-		 COMMAND_BAG id;
-		 const char* texfolder;
-		 float x;
-		 float y;
-		 float width;
-		 float height;
-		 DirectX::XMFLOAT2 size;
-		 DirectX::XMFLOAT4 color = { 1,1,1,1 };
-		 bool active;
-		 XMFLOAT2 uv_off[4];
-		 XMFLOAT2 uv_on[4];
-		 float t;
-		 bool on_off;
-	 };
-
-	 typedef struct FinSelectDataList
-	 {
-		 COMMAND_FINISH id;
-		 const char* texfolder;
-		 float x;
-		 float y;
-		 float width;
-		 float height;
-		 DirectX::XMFLOAT2 size;
-		 DirectX::XMFLOAT4 color = { 1,1,1,1 };
-		 bool active;
-		 XMFLOAT2 uv_off[4];
-		 XMFLOAT2 uv_on[4];
-		 float t;
-		 bool on_off;
-	 };*/
-
-	/*bool IsActive() {
-		return active;
-	}*/
-	//void Init();
-	//void Draw();
 
 	COMMAND_ID current_buttun = COMMAND_ID::NONE;
 	COMMAND_ID ChangeCommand(COMMAND_ID id);
@@ -267,25 +173,25 @@ public:
 	// 手持ちモンスター
 	std::vector<MonsterDataList> g_monsterlist = {
 		{COMMAND_MONSTER::BACK,"assets/UI/もどる_onoff.png",1120, 570,180,120,{1,1}, {1,1,1,1},false,
-		{uv[0],uv[1],uv[2],uv[3]},{uv0[0],uv0[1],uv0[2],uv0[3]},0,false},
+		{uv[0],uv[1],uv[2],uv[3]},{uv0[0],uv0[1],uv0[2],uv0[3]},0,false,false},
 		{COMMAND_MONSTER::BACK_SHADOW,"assets/UI/立体影_もどる2.png",1107, 580,180,120,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA_FRAME,"assets/UI/Battle/Command/Monster/枠_icon.png",180, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA1,"assets/UI/Battle/Command/Monster/icon.png",180, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA2,"assets/UI/Battle/Command/Monster/icon.png",360, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA3,"assets/UI/Battle/Command/Monster/icon.png",540, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA4,"assets/UI/Battle/Command/Monster/icon.png",720, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA5,"assets/UI/Battle/Command/Monster/icon.png",900, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_DATA6,"assets/UI/Battle/Command/Monster/icon.png",1080, 140,130,130,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 		{COMMAND_MONSTER::MONSTER_WINDOW,"assets/UI/Battle/Command/Monster/monster_window_base.png",640,360,1360,800,{1,1}, {1,1,1,1},false,
-		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false},
+		{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},{uv2D[0],uv2D[1],uv2D[2],uv2D[3]},false,false},
 	};
 	// バッグ
 	std::vector<BagDataList> g_baglist = {
