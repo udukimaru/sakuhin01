@@ -19,14 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimatedHero.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Assimpscene.h" />
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="CActor.h" />
     <ClInclude Include="CBag.h" />
-    <ClInclude Include="CBall.h" />
     <ClInclude Include="CBattleUI.h" />
     <ClInclude Include="CBillBoard.h" />
     <ClInclude Include="CCamera.h" />
@@ -35,28 +33,16 @@
     <ClInclude Include="CCreateString.h" />
     <ClInclude Include="CDirectInput.h" />
     <ClInclude Include="CDirectxGraphics.h" />
-    <ClInclude Include="CEffects.h" />
     <ClInclude Include="CLight.h" />
     <ClInclude Include="CModel.h" />
     <ClInclude Include="CMyMonster.h" />
     <ClInclude Include="Command_Base.h" />
     <ClInclude Include="CTitleUI.h" />
     <ClInclude Include="CUI.h" />
-    <ClInclude Include="DeviceDX11.h" />
     <ClInclude Include="Easing.h" />
-    <ClInclude Include="hero.h" />
-    <ClInclude Include="imgui\imconfig.h" />
-    <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="imgui\imgui_impl_win32.h" />
-    <ClInclude Include="imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\imstb_rectpack.h" />
-    <ClInclude Include="imgui\imstb_textedit.h" />
-    <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="KeyFrame.h" />
     <ClInclude Include="keyframeanim.h" />
-    <ClInclude Include="myimgui.h" />
     <ClInclude Include="M_Plain.h" />
     <ClInclude Include="M_Dog.h" />
     <ClInclude Include="CMonsterMgr.h" />
@@ -74,7 +60,6 @@
     <ClInclude Include="Encounter.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Grass.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="macro.h" />
     <ClInclude Include="Memory.h" />
@@ -87,10 +72,8 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader1.h" />
     <ClInclude Include="shaderhashmap.h" />
-    <ClInclude Include="Sprite2D.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StopWatch.h" />
-    <ClInclude Include="Test.h" />
     <ClInclude Include="TestMonster.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="uncopyable.h" />
@@ -104,7 +87,6 @@
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="CActor.cpp" />
     <ClCompile Include="CBag.cpp" />
-    <ClCompile Include="CBall.cpp" />
     <ClCompile Include="CBattleUI.cpp" />
     <ClCompile Include="CBillBoard.cpp" />
     <ClCompile Include="CCamera.cpp" />
@@ -112,24 +94,13 @@
     <ClCompile Include="CCommand.cpp" />
     <ClCompile Include="CCreateString.cpp" />
     <ClCompile Include="CDirectXGraphics.cpp" />
-    <ClCompile Include="CEffects.cpp" />
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="CMyMonster.cpp" />
     <ClCompile Include="Command_Base.cpp" />
     <ClCompile Include="CTitleUI.cpp" />
     <ClCompile Include="CUI.cpp" />
-    <ClCompile Include="DeviceDX11.cpp" />
-    <ClCompile Include="hero.cpp" />
-    <ClCompile Include="imgui\imgui.cpp" />
-    <ClCompile Include="imgui\imgui_demo.cpp" />
-    <ClCompile Include="imgui\imgui_draw.cpp" />
-    <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="imgui\imgui_tables.cpp" />
-    <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="keyframeanim.cpp" />
-    <ClCompile Include="myimgui.cpp" />
     <ClCompile Include="M_Plain.cpp" />
     <ClCompile Include="M_Dog.cpp" />
     <ClCompile Include="CMonsterMgr.cpp" />
@@ -146,7 +117,6 @@
     <ClCompile Include="dx11util.cpp" />
     <ClCompile Include="Encounter.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="Grass.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="ModelData.cpp" />
     <ClCompile Include="ModelMgr.cpp" />
@@ -155,10 +125,8 @@
     <ClCompile Include="quad2d.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shader1.cpp" />
-    <ClCompile Include="Sprite2D.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="StopWatch.cpp" />
-    <ClCompile Include="Test.cpp" />
     <ClCompile Include="TestMonster.cpp" />
     <ClCompile Include="time.cpp" />
     <ClCompile Include="utftosjisconv.cpp" />

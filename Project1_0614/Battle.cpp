@@ -17,7 +17,6 @@
 #include "CSceneMgr.h"
 #include "CMonsterMgr.h"
 #include "ModelMgr.h"
-#include "myimgui.h"
 #include "CBattleUI.h"
 #include "Easing.h"
 
@@ -98,23 +97,6 @@ void TextClear()
 	}
 }
 
-
-// IMGUIウインドウ
-void imguidebug() {
-
-	ImGui::Begin(u8"テスト");
-
-	std::string str;
-	str = u8"イッヌHP:"+
-		std::to_string(g_monster2.GetHP());
-	ImGui::Text(str.c_str());
-	str=u8"プレインHP:" +
-		std::to_string(g_plain.GetHP());
-	ImGui::Text(str.c_str());
-
-	ImGui::End();
-
-}
 
 void ShowString(std::string message)
 {
