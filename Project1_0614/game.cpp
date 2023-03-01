@@ -143,19 +143,21 @@ void GameUpdate(uint64_t dt) {
 
 	XMFLOAT2 exitpos = { 1120,command.g_buttunlist[3].y };
 
-	// カレントシーンを更新
-	g_manager.Update();
-	if (CCollider::Col(exitpos, 220, 120, cursor_pos)&& battle.FinishBattle() == true)
+	// にげる遷移
+	if (battle.current_turn==Battle::TURN_ID::EXIT)
 	{
 
-		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
-		{
+		//if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
+		//{
+	       // カレントシーンを更新
 			if (g_manager.GetCurrentSceneKey() == "BattleScene")
 			{
 				g_manager.changeScene<Encounter>("Encount", 2000, false);
 			}
-		}
+		//}
 	}
+	g_manager.Update();
+
 	//}
 }
 

@@ -115,6 +115,18 @@ int M_Dog::AttackDamage()
 	return damage;
 }
 
+int M_Dog::SpecialDamage()
+{
+	int damage;
+	std::random_device rand_dev;
+	std::mt19937 m_mt(rand_dev());
+	std::uniform_int_distribution<> rand100(40, 50);
+	damage = rand100(m_mt);
+	printf("UŒ‚—Í%d\n", damage);
+
+	return damage;
+}
+
 void M_Dog::Draw()
 {
 	// ƒ‚ƒfƒ‹•`‰æ

@@ -270,8 +270,12 @@ void CCommand::Update()
 	{
 		if (g_monsterlist[i].active == true)
 		{
-			//g_monsterlist[i].wait = true;
 			
+			/*g_monsterlist[i].t += 0.05f;
+			g_monsterlist[i].size.x += CEasing::GetInstance().easeOutElastic(g_monsterlist[i].t);
+			g_monsterlist[i].size.y += CEasing::GetInstance().easeOutElastic(g_monsterlist[i].t);*/
+			//g_monsterlist[i].wait = true;
+
 			g_monsterlist[i].size.x += 0.05f;
 			g_monsterlist[i].size.y += 0.05f;
 			g_monsterlist[i].color.w += 0.03f;

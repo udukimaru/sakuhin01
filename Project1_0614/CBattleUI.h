@@ -49,8 +49,8 @@ public:
 		{UI_ID::TEXTBASE,"assets/UI/Battle/WindowUI/text2.png",530, 630, 1080, 360, {1,1}, {1,1,1,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f},
 		{UI_ID::MYMONSTER_HP,"assets/UI/Battle/WindowUI/HPgauge.png",(200 - myHPpos.x),myHPpos.y,200,60, {1,1},{0,1,0,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f,{50,450}},
 		{UI_ID::MYMONSTER_HP_BASE,"assets/UI/Battle/WindowUI/HPgaugeBase.png",150,myHPpos.y,200,60, {1,1},{1,1,1,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f},
-		{UI_ID::ENEMY_HP,"assets/UI/Battle/WindowUI/HPgauge.png",(1200-enemyHPpos.x),enemyHPpos.y,200,60, {1,1},{0,1,0,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f,{50,250}},
-		{UI_ID::ENEMY_HP_BASE,"assets/UI/Battle/WindowUI/HPgaugeBase.png",1150,enemyHPpos.y,200,60, {1,1},{1,1,1,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f},
+		{UI_ID::ENEMY_HP,"assets/UI/Battle/WindowUI/HPgauge.png",1150,250,200,60, {1,1},{0,1,0,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f,{50,250}},
+		{UI_ID::ENEMY_HP_BASE,"assets/UI/Battle/WindowUI/HPgaugeBase.png",1150,250,200,60, {1,1},{1,1,1,1},true,{uv[0],uv[1],uv[2],uv[3]},0.0f},
 	};
 	
 	std::vector <std::shared_ptr<Quad2D>> list;
@@ -60,13 +60,14 @@ public:
 	void EnemyHPVib_Update();
 	void myHPVib_Update();
 	void HPVib_Update(std::vector<UI_List> &list,int i);
+	void HBasePVib_Update(std::vector<UI_List>& list, int i);
 
 	void Init();
 	void Draw();
 	void Update();
 	//void CreateUI(UI_ID type, float x, float y, float z, float xsize, float ysize, DirectX::XMFLOAT4 color);
 
-	void HPCal(float damage, float maxhp,float hp, std::vector<UI_List>& list,int i);
+	void HPCal(float damage, float maxhp,float hp, std::vector<UI_List>& list,int i,bool drawhp);
 
 
 	
@@ -83,5 +84,8 @@ public:
 		// ë∂ç›Ç∑ÇÈÇ©ÇämÇ©ÇﬂÇÈ
 		return GetInstance().list[(int)type];
 	}
+
+	void UIDraw(Quad2D quad[], int i, float x, float y, float width, float height, XMFLOAT2 size, XMFLOAT4 color, XMFLOAT2 uv[4]);
+
 };
 

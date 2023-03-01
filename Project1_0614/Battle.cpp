@@ -71,40 +71,14 @@ std::vector<Text_Data> textbox = {
 //bool turn_cnt2 = false;
 
 
-// バトル開始から大まかな流れ
-enum class TURN_ID {
-	NONE,
-	START,           // 何が出現したか文字描画
 
-	BATTLE,
-	BATTLE_START,
-
-	SELLECT,         // 行動選択
-	COMMAND_SKILL,   // wazaコマンド
-	CHHECK_SPEED,
-	MY_TURN,         // 自分のターン開始
-	MY_TURN_END,     // 自分のターン終わり
-	ENEMY_TURN,      // 敵のターン開始
-	ENEMY_TURN_END,  // 敵のターン終わり
-
-	BAG,             // もちもの
-
-	MONSTER,         // 手持ちモンスター
-
-	EXIT,
-
-	FINISH,
-	
-};
-
-TURN_ID current_turn=TURN_ID::START;
 //bool is_select = false;
 
-TURN_ID ChangeTurn(TURN_ID id)
-{
-	current_turn = id;
-	return current_turn;
-}
+//TURN_ID ChangeTurn(TURN_ID id)
+//{
+//	current_turn = id;
+//	return current_turn;
+//}
 
 
 // テキストを一括消去
@@ -277,6 +251,7 @@ void Battle::EnemyTurnBattle()
 void Battle::Init()
 {
 	m_TextKeepTime = 0;
+	current_turn = TURN_ID::START;
 
 	g_plain.Init();
 	g_monster2.Init();
@@ -559,12 +534,6 @@ void Battle::Update()
 		break;
 	case TURN_ID::CHHECK_SPEED:
 		g_ui.IsActive(g_ui.g_skilllist, false);
-		//for (int i = 0; i < g_ui.g_skilllist.size(); i++)
-		//{
-		//	g_ui.g_skilllist[i].active = false;
-		//	//t[i] = 0.0f;
-		//	//posx[i] = 0.0f;
-		//}
 		if (g_plain.GetSpeed() < g_monster2.GetSpeed())
 		{
 			current_turn = TURN_ID::MY_TURN;
@@ -581,15 +550,14 @@ void Battle::Update()
 		TurnAction();
 		if (drawhp == true)
 		{
+			//battle_ui.HPCal(plain_damage, g_plain.GetMAXHP(), g_plain.HP, battle_ui.uilist, 3, drawhp);
 			DrawHP();
-			//Vibration(myHPposX2.y);
 			battle_ui.HPVib_Update(battle_ui.uilist,3);
-			//TestTest();
 		}
 		else
 		{
 			//battle_ui.enemyHPpos.x = 1150.0f;
-			battle_ui.enemyHPpos.y = 250.0f;
+			battle_ui.uilist[3].y = 250.0f;
 			battle_ui.uilist[3].color.x = 0.0f;
 			battle_ui.uilist[3].color.y = 1.0f;
 		}
@@ -625,6 +593,7 @@ void Battle::Update()
 		// ３：HP減少
 		if (drawhpdog == true)
 		{
+			//battle_ui.HPCal(dog_damage, g_monster2.GetMAXHP(), g_monster2.GetHP(), battle_ui.uilist, 1, drawhpdog);
 			DrawHPDog();
 			battle_ui.HPVib_Update(battle_ui.uilist,1);
 		}
@@ -822,11 +791,13 @@ void Battle::Update()
 		}
 		 if (nakaminisuru==true)  //YESなら手持ちに加える
 		{
-									  // 加えた後にエンカウントに戻るorワールド変わる
+			 is_finish = true;						  // 加えた後にエンカウントに戻るorワールド変わる
 		}
 		 else // NO→何かしらのテキスト表示→エンカウントに戻る
 		 {
 			// battle_ui.uilist[0].active = true;
+
+			 is_finish = true;
 		 }
 
 		// エンカウンターに戻る
@@ -834,7 +805,10 @@ void Battle::Update()
 		break;
 	case TURN_ID::EXIT:
 		// エンカウンターに戻る
-		is_finish = true;
+		if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
+		{
+			is_finish = true;
+		}
 		/*XMFLOAT3 pl_pos = { g_player.GetPos().x,g_player.GetPos().y,g_player.GetPos().z +10};
 		g_player.SetPos(pl_pos);*/
 		//b_SceneMgr.changeScene<Encounter>("Encount", 2000, false);

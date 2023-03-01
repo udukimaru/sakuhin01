@@ -38,6 +38,8 @@
     <ClInclude Include="CEffects.h" />
     <ClInclude Include="CLight.h" />
     <ClInclude Include="CModel.h" />
+    <ClInclude Include="CMyMonster.h" />
+    <ClInclude Include="Command_Base.h" />
     <ClInclude Include="CTitleUI.h" />
     <ClInclude Include="CUI.h" />
     <ClInclude Include="DeviceDX11.h" />
@@ -112,6 +114,8 @@
     <ClCompile Include="CDirectXGraphics.cpp" />
     <ClCompile Include="CEffects.cpp" />
     <ClCompile Include="CModel.cpp" />
+    <ClCompile Include="CMyMonster.cpp" />
+    <ClCompile Include="Command_Base.cpp" />
     <ClCompile Include="CTitleUI.cpp" />
     <ClCompile Include="CUI.cpp" />
     <ClCompile Include="DeviceDX11.cpp" />

@@ -15,12 +15,15 @@ enum class TYPE
 };
 
 enum class Skill_ID {
+    NONE,              // スキルなし
     TACKLE,            // たいあたり
     WATERGUN,          // みずでっぽう
     FLAME,             // かえんほうしゃ
     LEAFCUTTER,        // はっぱカッター
     TELEKINESIS,       // ねんりき
     SHADOWBALL,        // シャドーボール
+
+    SPECIAL,           // スペシャル
 };
 
 class CMonsterMgr :public GameObject
