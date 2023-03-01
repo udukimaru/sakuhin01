@@ -26,6 +26,7 @@ public:
     void BattleUpdate();
     void Update();
     int AttackDamage();
+    int SpecialDamage();
 
     void Finalize();
 
