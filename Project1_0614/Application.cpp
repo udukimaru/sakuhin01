@@ -25,7 +25,6 @@
 #include "CTitle.h"
 #include "Battle.h"
 #include "CSceneMgr.h"
-#include "Test.h"
 
 //-----------------------------------------------------------------------------
 // スタティック　メンバー

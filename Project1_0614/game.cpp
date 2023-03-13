@@ -23,7 +23,7 @@ SceneManager	g_manager;
 M_Plain plain;
 CPlayer pl;
 
-CCommand command;
+CCommand com;
 float game_time = 0.0f;
 
 void GameInit() {
@@ -141,7 +141,7 @@ void GameUpdate(uint64_t dt) {
 	cursor_pos.x = CDirectInput::GetInstance().GetMousePosX();
 	cursor_pos.y = CDirectInput::GetInstance().GetMousePosY();
 
-	XMFLOAT2 exitpos = { 1120,command.g_buttunlist[3].y };
+	XMFLOAT2 exitpos = { 1120,com.g_buttunlist[3].y };
 
 	// ‚É‚°‚é‘JˆÚ
 	if (battle.current_turn==Battle::TURN_ID::EXIT)

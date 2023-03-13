@@ -49,6 +49,15 @@ public:
 	void Update();
 	void Finalize();
 
+	void IsUIActive(bool active)
+	{
+		for (int i = 0; i < g_monsterlist.size(); i++)
+		{
+			if (active == true)g_monsterlist[i].active = true;
+			else g_monsterlist[i].active = false;
+		}
+	}
+
 	// ‰ŠúˆÊ’u‚É‚à‚Ç‚·
 	void SetStartMonsterSize();
 };

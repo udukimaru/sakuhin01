@@ -11,7 +11,6 @@
 #include "CCollider.h"
 #include "CSceneMgr.h"
 #include "Battle.h"
-#include "CBall.h"
 
 //#include "AnimatedHero.h"
 
