@@ -11,7 +11,6 @@
 #include "CCollider.h"
 #include "CDirectInput.h"
 #include "Stage.h"
-#include "CBall.h"
 #include "CCreateString.h"
 #include "CCommand.h"
 #include "CSceneMgr.h"
@@ -19,8 +18,14 @@
 #include "ModelMgr.h"
 #include "CBattleUI.h"
 #include "Easing.h"
-
+#include "CMyMonster.h"
 #include "Encounter.h"
+
+#include "Command_Base.h"
+#include "CCommandSelect.h"
+#include "CSkill.h"
+#include "CMyMonster.h"
+#include "CBag.h"
 
 CMonsterMgr* m_monsters;
 
@@ -32,6 +37,17 @@ Stage stage;
 
 CCreateString* write;
 CCreateString* monsterSta;
+
+//Command_Base* command; 
+
+/// 
+/// commandselectのIsUIActiveはできる
+/// 問題：g_ui消すとマウスカーソル判定できんからどうするか
+/// 
+CCommandSelect* cselect;
+CSkill* cskill;
+CMyMonster* cmonster;
+CBag* cbag;
 
 CCommand g_ui;
 CBattleUI battle_ui;
@@ -83,14 +99,15 @@ std::vector<Text_Data> textbox = {
 // テキストを一括消去
 void TextClear()
 {
-	for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
+	cselect->IsUIActive(false);
+	/*for (int i = 0; i < g_ui.g_buttunlist.size(); i++)
 	{
 		g_ui.g_buttunlist[i].active = false;
 	}
 	for (int j = 0; j < g_ui.g_skilllist.size(); j++)
 	{
 		g_ui.g_skilllist[j].active = false;
-	}
+	}*/
 	for (int k = 0; k < textbox.size(); k++)
 	{
 		textbox[k].text_active = false;
@@ -235,12 +252,29 @@ void Battle::Init()
 	m_TextKeepTime = 0;
 	current_turn = TURN_ID::START;
 
+	/*command = new Command_Base();
+	command->Init();*/
+
+	cselect = new CCommandSelect();
+	cselect->Init();
+
+	cskill = new CSkill;
+	cskill->Init();
+
+	cmonster = new CMyMonster;
+	cmonster->Init();
+
+	cbag = new CBag;
+	cbag->Init();
+
+
 	g_plain.Init();
 	g_monster2.Init();
 	g_skydome.Init();
 	stage.Init();
 
-	g_ui.InitButton();
+
+	//g_ui.InitButton();
 	battle_ui.Init();
 	
 	// 文字描画
@@ -272,7 +306,6 @@ void Battle::Input()
 
 void Battle::Draw()
 {
-
 	//auto command = CCommand::GetInstance();
 
 	float col[4] = { 1,0,0,1 };
@@ -290,6 +323,13 @@ void Battle::Draw()
 	mtx = CCamera::GetInstance()->GetCameraMatrix();
 	DX11SetTransform::GetInstance()->SetTransform(DX11SetTransform::TYPE::VIEW, mtx);
 
+	//command->Draw();
+	cselect->Draw();
+	cskill->Draw();
+	cmonster->Draw();
+	cbag->Draw();
+
+
 	if (g_plain.IsActive() == true) {
 		g_plain.Draw();
 	}
@@ -297,7 +337,7 @@ void Battle::Draw()
 	g_skydome.Draw();
 	stage.Draw();
 
-	g_ui.DrawButton();
+	//g_ui.DrawButton();
 	battle_ui.Draw();
 	
 		//char name[20] = "プレイン";
@@ -351,6 +391,7 @@ void Battle::Update()
 	bool keyinput = CDirectInput::GetInstance().GetMouseLButtonCheck();
 	keyinput = false;
 
+	command->Update();
 	battle_ui.Update();
 	//CCamera::GetInstance()->AutoCameraUpdate();
 
@@ -417,37 +458,62 @@ void Battle::Update()
 
 		CCamera::GetInstance()->AutoCamera();
 
-		g_ui.IsActive(g_ui.g_buttunlist, true);
-		textbox[5].text_active = true;
-		
-		g_ui.Update();
+		/*g_ui.IsActive(g_ui.g_buttunlist, true);
+		g_ui.Update();*/
 
-		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 0)
+		cselect->IsUIActive(true);
+		cselect->Update();
+		textbox[5].text_active = true;
+
+		//cmonster->IsUIActive(true);
+		if (cselect->CheckOnOff(cselect->g_buttunlist) == 0)
 		{
 			// 技選択へ
 			current_turn = TURN_ID::COMMAND_SKILL;
 			printf("たたかう\n");
-			g_ui.SetStartPos(g_ui.g_skilllist);
+			cskill->SetStartPos();
 		}
-		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 1)
+		//if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 0)
+		//{
+		//	// 技選択へ
+		//	current_turn = TURN_ID::COMMAND_SKILL;
+		//	printf("たたかう\n");
+		//	g_ui.SetStartPos(g_ui.g_skilllist);
+		//}
+		if (cselect->CheckOnOff(cselect->g_buttunlist) == 1)
 		{
-			// モンスター画面へ
+			// 技選択へ
 			current_turn = TURN_ID::MONSTER;
 			printf("モンスター\n");
-			g_ui.SetStartFade(g_ui.g_monsterlist);
+			cmonster->SetStartMonsterSize();
 		}
-		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 2)
+		//if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 1)
+		//{
+		//	// モンスター画面へ
+		//	current_turn = TURN_ID::MONSTER;
+		//	printf("モンスター\n");
+		//	g_ui.SetStartFade(g_ui.g_monsterlist);
+		//}
+		if (cselect->CheckOnOff(cselect->g_buttunlist) == 2)
 		{
-			// バッグ画面へ
+			// 技選択へ
 			current_turn = TURN_ID::BAG;
 			printf("バッグ\n");
+			cbag->SetStartSize();
+			//cmonster->SetStartMonsterSize();
 		}
-		if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 3)
-		{
-			// にげる
-			current_turn = TURN_ID::EXIT;
-			printf("にげる\n");
-		}
+		//if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 2)
+		//{
+		//	// バッグ画面へ
+		//	current_turn = TURN_ID::BAG;
+		//	printf("バッグ\n");
+		//}
+		//if (g_ui.CheckOnOff(g_ui.g_buttunlist) == 3)
+		//{
+		//	// にげる
+		//	current_turn = TURN_ID::EXIT;
+		//	printf("にげる\n");
+		//}
 
 		break;
 	case TURN_ID::COMMAND_SKILL:
@@ -461,18 +527,34 @@ void Battle::Update()
 		CCamera::GetInstance()->CreateCameraMatrix();
 		CCamera::GetInstance()->CreateProjectionMatrix();
 
-		g_ui.IsActive(g_ui.g_buttunlist, false);
+		/*g_ui.IsActive(g_ui.g_buttunlist, false);
+		g_ui.IsActive(g_ui.g_skilllist, true);
+		g_ui.Update();*/
 
-		if (m_TextKeepTime <= 0)
-		{
-			g_ui.IsActive(g_ui.g_skilllist, true);
+		cselect->IsUIActive(false);
+		cskill->IsUIActive(true);
+		cskill->Update();
 
-			g_ui.Update();
-			m_TextKeepTime = 0;
-		}
+		//if (m_TextKeepTime <= 0)
+		//{
+
+			//m_TextKeepTime = 0;
+		//}
 
 		//わざ１
-		if (g_ui.CheckOnOff(g_ui.g_skilllist) == 0)
+		if (cskill->CheckOnOff(cskill->g_skilllist) == 0)
+		{
+			cskill->IsUIActive(false);
+
+			current_turn = TURN_ID::CHHECK_SPEED;
+			printf("わざ\n"); 
+			cskill->SetStartPos();
+			for (int i = 0; i < textbox.size(); i++)
+			{
+				textbox[i].text_active = false;
+			}
+		}
+		/*if (g_ui.CheckOnOff(g_ui.g_skilllist) == 0)
 		{
 			g_ui.IsActive(g_ui.g_skilllist, false);
 
@@ -483,9 +565,21 @@ void Battle::Update()
 		    {
 		    	textbox[i].text_active = false;
 		    }
-		}
+		}*/
 		//わざ2
-		if (g_ui.CheckOnOff(g_ui.g_skilllist) == 1)
+		if (cskill->CheckOnOff(cskill->g_skilllist) == 1)
+		{
+			cskill->IsUIActive(false);
+
+			current_turn = TURN_ID::CHHECK_SPEED;
+			printf("わざ\n");
+			cskill->SetStartPos();
+			for (int i = 0; i < textbox.size(); i++)
+			{
+				textbox[i].text_active = false;
+			}
+		}
+		/*if (g_ui.CheckOnOff(g_ui.g_skilllist) == 1)
 		{
 			g_ui.IsActive(g_ui.g_skilllist, false);
 
@@ -496,9 +590,23 @@ void Battle::Update()
 			{
 				textbox[i].text_active = false;
 			}
-		}
+		}*/
 		//もどる
-		if (g_ui.CheckOnOff(g_ui.g_skilllist) == 2)
+		if (cskill->CheckOnOff(cskill->g_skilllist) == 2)
+		{
+			cskill->IsUIActive(false);
+
+			current_turn = TURN_ID::SELLECT;
+			printf("もどる\n");
+			cskill->SetStartPos();
+			for (int i = 0; i < textbox.size(); i++)
+			{
+				textbox[2].text_active = false;
+				textbox[5].text_active = true;;
+			}
+			cselect->SetStartPos();
+		}
+		/*if (g_ui.CheckOnOff(g_ui.g_skilllist) == 2)
 		{
 			g_ui.IsActive(g_ui.g_skilllist, false);
 
@@ -511,11 +619,12 @@ void Battle::Update()
 				textbox[5].text_active = true;;
 			}
 			g_ui.SetStartPos(g_ui.g_buttunlist);
-		}
+		}*/
 
 		break;
 	case TURN_ID::CHHECK_SPEED:
-		g_ui.IsActive(g_ui.g_skilllist, false);
+		//g_ui.IsActive(g_ui.g_skilllist, false);
+		cskill->IsUIActive(false);
 		if (g_plain.GetSpeed() < g_monster2.GetSpeed())
 		{
 			current_turn = TURN_ID::MY_TURN;
@@ -595,7 +704,8 @@ void Battle::Update()
 
 		if (g_monster2.HP > 0)
 		{
-			g_ui.SetStartPos(g_ui.g_buttunlist);
+			cselect->SetStartPos();
+			//g_ui.SetStartPos(g_ui.g_buttunlist);
 			current_turn = TURN_ID::SELLECT;
 		}
 		else
@@ -627,38 +737,58 @@ void Battle::Update()
 		CCamera::GetInstance()->CreateCameraMatrix();
 		CCamera::GetInstance()->CreateProjectionMatrix();
 
-		g_ui.IsActive(g_ui.g_buttunlist, false);
-		g_ui.IsActive(g_ui.g_baglist, true);
+		cselect->IsUIActive(false);
+		cbag->IsUIActive(true);
+		cbag->Update();
+		//g_ui.IsActive(g_ui.g_buttunlist, false);
+		//g_ui.IsActive(g_ui.g_baglist, true);
 
 		for (int i = 1; i < battle_ui.uilist.size(); i++) {
 			battle_ui.uilist[i].active = false;
 		}
-			textbox[5].text_active = false;
-		XMFLOAT2 bagpos = { g_ui.g_baglist[0].x,g_ui.g_baglist[0].y };
-		// もどるボタンが押されたらSELECTへ
-		if (CCollider::Col(bagpos, 180, 120, cursor_pos) && g_ui.g_baglist[0].active == true)
+		textbox[5].text_active = false;
+
+		cbag->g_baglist[0].wait = true;
+		if (cbag->CheckOnOff(cbag->g_baglist) == 0)
 		{
-			g_ui.g_baglist[0].on_off = true;
-			if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
+			cbag->IsUIActive(false);
+
+			current_turn = TURN_ID::SELLECT;
+			printf("もどる\n");
+			for (int i = 0; i < textbox.size(); i++)
 			{
-				textbox[5].text_active = true;
-				printf("もどる");
-				for (int i = 0; i < g_ui.g_baglist.size(); i++)
-				{
-					g_ui.g_baglist[i].active = false;
-				}
-				for (int i = 1; i < battle_ui.uilist.size(); i++) {
-					battle_ui.uilist[i].active = true;
-				}
-				//batletet = true;
-				current_turn = TURN_ID::SELLECT;
-				g_ui.SetStartPos(g_ui.g_buttunlist);
+				textbox[2].text_active = false;
+				textbox[5].text_active = true;;
 			}
+			cselect->SetStartPos();
 		}
-		else
-		{
-			g_ui.g_baglist[0].on_off = false;
-		}
+
+
+		//XMFLOAT2 bagpos = { g_ui.g_baglist[0].x,g_ui.g_baglist[0].y };
+		//// もどるボタンが押されたらSELECTへ
+		//if (CCollider::Col(bagpos, 180, 120, cursor_pos) && g_ui.g_baglist[0].active == true)
+		//{
+		//	g_ui.g_baglist[0].on_off = true;
+		//	if (CDirectInput::GetInstance().GetMouseLButtonTrigger())
+		//	{
+		//		textbox[5].text_active = true;
+		//		printf("もどる");
+		//		for (int i = 0; i < g_ui.g_baglist.size(); i++)
+		//		{
+		//			g_ui.g_baglist[i].active = false;
+		//		}
+		//		for (int i = 1; i < battle_ui.uilist.size(); i++) {
+		//			battle_ui.uilist[i].active = true;
+		//		}
+		//		//batletet = true;
+		//		current_turn = TURN_ID::SELLECT;
+		//		g_ui.SetStartPos(g_ui.g_buttunlist);
+		//	}
+		//}
+		//else
+		//{
+		//	g_ui.g_baglist[0].on_off = false;
+		//}
 		break;
 		
 	/// <summary>
@@ -675,37 +805,54 @@ void Battle::Update()
 		CCamera::GetInstance()->CreateCameraMatrix();
 		CCamera::GetInstance()->CreateProjectionMatrix();
 
-		g_ui.IsActive(g_ui.g_buttunlist, false);
-		g_ui.IsActive(g_ui.g_monsterlist, true);
+		cselect->IsUIActive(false);
+		cmonster->IsUIActive(true);
+		cmonster->Update();
+		/*g_ui.IsActive(g_ui.g_buttunlist, false);
+		g_ui.IsActive(g_ui.g_monsterlist, true);*/
 
-		g_ui.Update();
+		//g_ui.Update();
 			for (int i = 1; i < battle_ui.uilist.size(); i++) {
 				battle_ui.uilist[i].active = false;
 			}
 		//what = false;
 		textbox[5].text_active = false;
 
-			XMFLOAT2 pos = { g_ui.g_monsterlist[0].x,g_ui.g_monsterlist[0].y };
+			//XMFLOAT2 pos = { g_ui.g_monsterlist[0].x,g_ui.g_monsterlist[0].y };
 
 			//g_ui.UpdateColTest(pos.x, pos.y, g_ui.g_monsterlist[0].width, g_ui.g_monsterlist[0].height);
 
 
 
-			g_ui.g_monsterlist[0].wait = true;
+		cmonster->g_monsterlist[0].wait = true;
+			// 
 			 //もどるボタンが押されたらSELECTへ
-			if (g_ui.CheckOnOff(g_ui.g_monsterlist) == 0)
-			{
-				textbox[5].text_active = true;;
-				printf("もどる");
-				g_ui.IsActive(g_ui.g_monsterlist, false);
+		if (cmonster->CheckOnOff(cmonster->g_monsterlist) == 0)
+		{
+			textbox[2].text_active = false;
+			textbox[5].text_active = true;
+			cmonster->IsUIActive(false);
 
-				for (int i = 1; i < battle_ui.uilist.size(); i++) {
-					battle_ui.uilist[i].active = true;
-				}
-				//batletet = true;
-				current_turn = TURN_ID::SELLECT;
-				g_ui.SetStartPos(g_ui.g_buttunlist);
+			for (int i = 1; i < battle_ui.uilist.size(); i++) {
+				battle_ui.uilist[i].active = true;
 			}
+			current_turn = TURN_ID::SELLECT;
+			printf("もどる\n");
+			cselect->SetStartPos();
+		}
+			//if (g_ui.CheckOnOff(g_ui.g_monsterlist) == 0)
+			//{
+			//	textbox[5].text_active = true;;
+			//	printf("もどる");
+			//	g_ui.IsActive(g_ui.g_monsterlist, false);
+
+			//	for (int i = 1; i < battle_ui.uilist.size(); i++) {
+			//		battle_ui.uilist[i].active = true;
+			//	}
+			//	//batletet = true;
+			//	current_turn = TURN_ID::SELLECT;
+			//	g_ui.SetStartPos(g_ui.g_buttunlist);
+			//}
 		
 		break;
 	case TURN_ID::FINISH:
@@ -813,6 +960,11 @@ void Battle::Dispose()
 
 	//battle_buttun.UnInit();
 	write->Release();
+
+	delete cselect;
+	delete cskill;
+	delete cmonster;
+	delete cbag;
 
 	//imguiExit();
 	DX11Uninit();

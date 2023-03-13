@@ -4,7 +4,6 @@
 #include "CSceneMgr.h"
 #include "Encounter.h"
 #include "CCamera.h"
-#include "Test.h"
 #include "Easing.h"
 #include "CTitleUI.h"
 

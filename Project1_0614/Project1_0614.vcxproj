@@ -30,6 +30,7 @@
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="CCollider.h" />
     <ClInclude Include="CCommand.h" />
+    <ClInclude Include="CCommandSelect.h" />
     <ClInclude Include="CCreateString.h" />
     <ClInclude Include="CDirectInput.h" />
     <ClInclude Include="CDirectxGraphics.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="CModel.h" />
     <ClInclude Include="CMyMonster.h" />
     <ClInclude Include="Command_Base.h" />
+    <ClInclude Include="CSkill.h" />
     <ClInclude Include="CTitleUI.h" />
     <ClInclude Include="CUI.h" />
     <ClInclude Include="Easing.h" />
@@ -92,11 +94,13 @@
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CCommand.cpp" />
+    <ClCompile Include="CCommandSelect.cpp" />
     <ClCompile Include="CCreateString.cpp" />
     <ClCompile Include="CDirectXGraphics.cpp" />
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="CMyMonster.cpp" />
     <ClCompile Include="Command_Base.cpp" />
+    <ClCompile Include="CSkill.cpp" />
     <ClCompile Include="CTitleUI.cpp" />
     <ClCompile Include="CUI.cpp" />
     <ClCompile Include="IScene.cpp" />

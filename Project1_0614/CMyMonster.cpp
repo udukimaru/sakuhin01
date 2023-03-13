@@ -37,6 +37,25 @@ void CMyMonster::Draw()
 
 void CMyMonster::Update()
 {
+	for (int i = 0; i < g_monsterlist.size(); i++)
+	{
+		if (g_monsterlist[i].active == true)
+		{
+			g_monsterlist[i].size.x += 0.05f;
+			g_monsterlist[i].size.y += 0.05f;
+			g_monsterlist[i].color.w += 0.03f;
+			if (g_monsterlist[i].size.x >= 1.0f) {
+				g_monsterlist[i].size.x = 1.0f;
+			}
+			if (g_monsterlist[i].size.y >= 1.0f) {
+				g_monsterlist[i].size.y = 1.0f;
+			}
+			if (g_monsterlist[i].color.w >= 0.8f)
+			{
+				g_monsterlist[i].color.w = 1.0f;
+			}
+		}
+	}
 }
 
 void CMyMonster::Finalize()

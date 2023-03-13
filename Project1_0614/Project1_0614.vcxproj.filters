@@ -213,6 +213,12 @@
     <ClInclude Include="CUI.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="CSkill.h">
+      <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="CCommandSelect.h">
+      <Filter>command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mesh.cpp">
@@ -367,6 +373,12 @@
     </ClCompile>
     <ClCompile Include="CBattleUI.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CSkill.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
+    <ClCompile Include="CCommandSelect.cpp">
+      <Filter>command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
