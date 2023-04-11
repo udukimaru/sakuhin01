@@ -16,8 +16,13 @@ void CMyMonster::Draw()
 	{
 		if (g_monsterlist[i].active == true)
 		{
+			if (i > 1&&i!=10) {
+				UIDraw(monster, i, g_monsterlist[i].x, g_monsterlist[i].y, g_monsterlist[i].width, g_monsterlist[i].height,
+					g_monsterlist[i].size, g_monsterlist[i].color, g_monsterlist[i].uv_off);
+			}
+			
 			if (g_monsterlist[i].on_off == false) {
-				if (i != 1) {
+				if (i == 0) {
 					UIDraw(monster, i, g_monsterlist[i].x, g_monsterlist[i].y, g_monsterlist[i].width, g_monsterlist[i].height,
 						g_monsterlist[i].size, g_monsterlist[i].color, g_monsterlist[i].uv_off);
 				}
@@ -53,6 +58,41 @@ void CMyMonster::Update()
 			if (g_monsterlist[i].color.w >= 0.8f)
 			{
 				g_monsterlist[i].color.w = 1.0f;
+			}
+		}
+
+	// カーソル位置取得
+	XMFLOAT2 cursor_pos = {};
+	cursor_pos.x = CDirectInput::GetInstance().GetMousePosX();
+	cursor_pos.y = CDirectInput::GetInstance().GetMousePosY();
+
+	XMFLOAT2 pos = { g_monsterlist[i].x,g_monsterlist[i].y };
+
+		if (CCollider::Col(pos, g_monsterlist[i].width, g_monsterlist[i].height, cursor_pos))
+		{
+
+			switch (i)
+			{
+			case 3:
+				g_monsterlist[2].x = g_monsterlist[3].x;
+				break;
+			case 4:
+				g_monsterlist[2].x = g_monsterlist[4].x;
+				break;
+			case 5:
+				g_monsterlist[2].x = g_monsterlist[5].x;
+				break;
+			case 6:
+				g_monsterlist[2].x = g_monsterlist[6].x;
+				break;
+			case 7:
+				g_monsterlist[2].x = g_monsterlist[7].x;
+				break;
+			case 8:
+				g_monsterlist[2].x = g_monsterlist[8].x;
+			case 9:
+			case 10:
+				break;
 			}
 		}
 	}

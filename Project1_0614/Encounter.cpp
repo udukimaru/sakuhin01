@@ -1,6 +1,5 @@
 #include "Encounter.h"
 #include "M_Plain.h"
-#include "CStage.h"
 #include "CSkydome.h"
 #include "CCamera.h"
 #include "CPlayer.h"

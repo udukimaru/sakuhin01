@@ -1,6 +1,6 @@
 #pragma once
 #include	<DirectXMath.h>
-#include	"Shader.h"
+#include	"Shader1.h"
 #include	"Memory.h"
 #include	"CDirectxGraphics.h"
 

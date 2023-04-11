@@ -94,14 +94,14 @@ void GameUpdate(uint64_t dt) {
 
 	
 	// キー入力で遷移
-	if (CDirectInput::GetInstance().GetMouseLButtonTrigger()) {
+	/*if (CDirectInput::GetInstance().GetMouseLButtonTrigger()) {
 
 		if (g_manager.GetCurrentSceneKey() == "TitleScene") {
 			g_manager.SetFadeColor(XMFLOAT4(0, 0, 0, 1));
 			g_manager.changeScene<Encounter>("Encount", 2000, false);
 
 		}
-	}
+	}*/
 	// 敵に当たるとバトルシーンに
 	//生きているときだけ当たり判定
 	if (plain.isActive== true && g_manager.GetCurrentSceneKey() == "Encount") {
@@ -119,22 +119,22 @@ void GameUpdate(uint64_t dt) {
 		plain.Update();
 	}
 	// タイトル画面→バトルシーン
-	if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_W)) {
+	if (CDirectInput::GetInstance().GetMouseLButtonTrigger()) {
 		if (g_manager.GetCurrentSceneKey() == "TitleScene") {
 			g_manager.changeScene<Battle>("BattleScene", 2000, false);
 		}
 	}
-	if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_A)) {
-		if (g_manager.GetCurrentSceneKey() == "BattleScene")
+	/*if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_A)) {
+		if (g_manager.GetCurrentSceneKey() == "TitleScene")
 		{
 			g_manager.changeScene<Encounter>("Encount", 1000, false);
 		}
-	}
-	if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_UP)) {
+	}*/
+	/*if (CDirectInput::GetInstance().CheckKeyBuffer(DIK_UP)) {
 		if (g_manager.GetCurrentSceneKey() == "Encount") {
 			g_manager.changeScene<Battle>("BattleScene", 1000, false);
 		}
-	}
+	}*/
 
 	// カーソル位置取得
 	XMFLOAT2 cursor_pos = {};

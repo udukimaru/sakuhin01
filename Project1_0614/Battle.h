@@ -10,10 +10,7 @@ private:
 	unsigned int m_TextKeepTime;
 	bool is_finish = false;
 public:
-	//
-	void RandAttack();
-	void TurnAction();
-	void EnemyTurnBattle();
+	
 	void Init();
 	void Input();
 	void Draw();
@@ -30,7 +27,6 @@ public:
 		START,           // 何が出現したか文字描画
 
 		BATTLE,
-		BATTLE_START,
 
 		SELLECT,         // 行動選択
 		COMMAND_SKILL,   // wazaコマンド
@@ -57,9 +53,5 @@ public:
 		current_turn = id;
 		return current_turn;
 	}
-	/*static Battle& GetInstance() {
-		static Battle Instance;
-		return Instance;
-	}*/
 };
 

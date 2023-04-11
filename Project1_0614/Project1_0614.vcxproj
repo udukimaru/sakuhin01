@@ -34,6 +34,7 @@
     <ClInclude Include="CCreateString.h" />
     <ClInclude Include="CDirectInput.h" />
     <ClInclude Include="CDirectxGraphics.h" />
+    <ClInclude Include="CFinishSelect.h" />
     <ClInclude Include="CLight.h" />
     <ClInclude Include="CModel.h" />
     <ClInclude Include="CMyMonster.h" />
@@ -43,8 +44,6 @@
     <ClInclude Include="CUI.h" />
     <ClInclude Include="Easing.h" />
     <ClInclude Include="IScene.h" />
-    <ClInclude Include="KeyFrame.h" />
-    <ClInclude Include="keyframeanim.h" />
     <ClInclude Include="M_Plain.h" />
     <ClInclude Include="M_Dog.h" />
     <ClInclude Include="CMonsterMgr.h" />
@@ -69,14 +68,12 @@
     <ClInclude Include="ModelData.h" />
     <ClInclude Include="ModelMgr.h" />
     <ClInclude Include="M_Slime.h" />
-    <ClInclude Include="OneSkinModel.h" />
     <ClInclude Include="quad2d.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader1.h" />
     <ClInclude Include="shaderhashmap.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StopWatch.h" />
-    <ClInclude Include="TestMonster.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="uncopyable.h" />
     <ClInclude Include="utftosjisconv.h" />
@@ -97,6 +94,7 @@
     <ClCompile Include="CCommandSelect.cpp" />
     <ClCompile Include="CCreateString.cpp" />
     <ClCompile Include="CDirectXGraphics.cpp" />
+    <ClCompile Include="CFinishSelect.cpp" />
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="CMyMonster.cpp" />
     <ClCompile Include="Command_Base.cpp" />
@@ -104,7 +102,6 @@
     <ClCompile Include="CTitleUI.cpp" />
     <ClCompile Include="CUI.cpp" />
     <ClCompile Include="IScene.cpp" />
-    <ClCompile Include="keyframeanim.cpp" />
     <ClCompile Include="M_Plain.cpp" />
     <ClCompile Include="M_Dog.cpp" />
     <ClCompile Include="CMonsterMgr.cpp" />
@@ -125,13 +122,11 @@
     <ClCompile Include="ModelData.cpp" />
     <ClCompile Include="ModelMgr.cpp" />
     <ClCompile Include="M_Slime.cpp" />
-    <ClCompile Include="OneSkinModel.cpp" />
     <ClCompile Include="quad2d.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shader1.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="StopWatch.cpp" />
-    <ClCompile Include="TestMonster.cpp" />
     <ClCompile Include="time.cpp" />
     <ClCompile Include="utftosjisconv.cpp" />
     <ClCompile Include="WICTextureLoader.cpp" />

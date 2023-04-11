@@ -1,7 +1,7 @@
 #include	<d3d11.h>
 #include	<DirectXMath.h>
 #include	"CDirectxGraphics.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 #include	"CCamera.h"
 #include	"memory.h"
 #include	"CLight.h"

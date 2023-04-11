@@ -1,7 +1,7 @@
 #define NOMINMAX
 #include	<windows.h>
 #include	"CModel.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 #include	"CDirectxGraphics.h"
 #include	"DX11Settransform.h"
 #include	"ModelData.h"

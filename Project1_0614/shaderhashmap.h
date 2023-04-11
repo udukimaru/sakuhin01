@@ -3,7 +3,7 @@
 #include	<d3d11.h>
 #include	<string>
 #include	"dx11util.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 
 class ShaderHashmap {
 public:

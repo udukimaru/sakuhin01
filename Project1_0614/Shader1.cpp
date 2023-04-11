@@ -1,6 +1,6 @@
 #include	<vector>
 #include	"DirectXTex.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 
 //--------------------------------------------------------------------------------------
 // ƒtƒ@ƒCƒ‹–¼‚ðŽæ“¾‚·‚é

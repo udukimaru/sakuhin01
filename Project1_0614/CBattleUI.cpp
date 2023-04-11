@@ -66,13 +66,14 @@ void CBattleUI::HBasePVib_Update(std::vector<UI_List>& list, int i)
 //	}*/
 //}
 //
-void CBattleUI::Init()
+bool CBattleUI::Init()
 {
 	for (int i=0;i< uilist.size();i++)
 	{
 		battleui_data[i].Init(1, 1, XMFLOAT4(1, 1, 1, 1), uilist[i].uv);
 		battleui_data[i].LoadTexture(uilist[i].texfolder);
 	}
+	return true;
 }
 
 void CBattleUI::Draw()
@@ -83,27 +84,15 @@ void CBattleUI::Draw()
 		if (uilist[i].active == true) {
 			if (i == 0)
 			{
-				battleui_data[i].updateVertex(uilist[i].width, uilist[i].height, XMFLOAT4(1, 1, 1, 1), uilist[i].uv);
-				battleui_data[i].updateVbuffer();
-				battleui_data[i].SetScale(uilist[i].size.x, uilist[i].size.y, 0);
-				battleui_data[i].SetPosition(uilist[i].x, uilist[i].y, 0);
-				battleui_data[i].Draw();
+				UIDraw(battleui_data, 0, uilist[i].x, uilist[i].y, uilist[i].width, uilist[i].height, uilist[i].size, XMFLOAT4(1, 1, 1, 1), uilist[i].uv);
 			}
 			if (i == 1||i==2)
 			{
-				battleui_data[i].updateVertex(uilist[i].width, uilist[i].height, uilist[i].color, uilist[i].uv);
-				battleui_data[i].updateVbuffer();
-				battleui_data[i].SetScale(uilist[i].size.x, uilist[i].size.y, 0);
-				battleui_data[i].SetPosition(uilist[i].x, uilist[1].y, 0);
-				battleui_data[i].Draw();
+				UIDraw(battleui_data, i, uilist[i].x, uilist[1].y, uilist[i].width, uilist[i].height, uilist[i].size, uilist[i].color, uilist[i].uv);
 			}
 			if (i == 3 || i == 4)
 			{
-				battleui_data[i].updateVertex(uilist[i].width, uilist[i].height, uilist[i].color, uilist[i].uv);
-				battleui_data[i].updateVbuffer();
-				battleui_data[i].SetScale(uilist[i].size.x, uilist[i].size.y, 0);
-				battleui_data[i].SetPosition(uilist[i].x, uilist[3].y, 0);
-				battleui_data[i].Draw();
+				UIDraw(battleui_data, i, uilist[i].x, uilist[3].y, uilist[i].width, uilist[i].height, uilist[i].size, uilist[i].color, uilist[i].uv);
 			}
 		}
 	}
@@ -135,14 +124,14 @@ void CBattleUI::HPCal(float damage, float maxhp, float hp, std::vector<UI_List>&
 	}
 }
 
-void CBattleUI::UIDraw(Quad2D quad[], int i, float x, float y, float width, float height, XMFLOAT2 size, XMFLOAT4 color, XMFLOAT2 uv[4])
-{
-	quad[i].updateVertex(width, height, color, uv);
-	quad[i].updateVbuffer();
-	quad[i].SetPosition(x, y, 0);
-	quad[i].SetScale(size.x, size.y, 0);
-	quad[i].Draw();
-}
+//void CBattleUI::UIDraw(Quad2D quad[], int i, float x, float y, float width, float height, XMFLOAT2 size, XMFLOAT4 color, XMFLOAT2 uv[4])
+//{
+//	quad[i].updateVertex(width, height, color, uv);
+//	quad[i].updateVbuffer();
+//	quad[i].SetPosition(x, y, 0);
+//	quad[i].SetScale(size.x, size.y, 0);
+//	quad[i].Draw();
+//}
 
 //void CBattleUI::CreateUI(UI_ID type,float x,float y, float z, float xsize, float ysize, DirectX::XMFLOAT4 color)
 //{

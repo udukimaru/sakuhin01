@@ -7,6 +7,7 @@ bool CCommandSelect::Init()
 		sp[i].Init(30, 30, XMFLOAT4(1, 1, 1, 1), g_buttunlist[i].uv_off);
 		sp[i].LoadTexture(g_buttunlist[i].texfolder);
 	}
+
     return true;
 }
 
@@ -15,13 +16,11 @@ void CCommandSelect::Draw()
 	// ƒRƒ}ƒ“ƒh
 	for (int i = 0; i < g_buttunlist.size(); i++)
 	{
-		//BattleDraw(i, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height, g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_off);
-
 		if (g_buttunlist[i].active == true)
 		{
 			if (g_buttunlist[i].on_off == false)
 			{
-				if (i < 4) { // ID‚Å³‚µ‚¢‚©”»’è?
+				if (i < 4) { 
 					UIDraw(sp, i, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height, g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_off);
 				}
 			}

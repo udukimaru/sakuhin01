@@ -1,7 +1,7 @@
 #pragma once
 #include	<DirectXMath.h>
 #include	"memory.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 #include	"DX11util.h"
 
 class CLight {

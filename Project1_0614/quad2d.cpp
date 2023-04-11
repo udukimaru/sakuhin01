@@ -4,7 +4,7 @@
 #include	<string>
 #include	"dx11mathutil.h"
 #include	"dx11util.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 #include	"shaderhashmap.h"
 #include	"DX11Settransform.h"
 #include	"quad2d.h"

@@ -1,6 +1,8 @@
 #pragma once
 #include "quad2d.h"
-class CBattleUI
+#include "Command_Base.h"
+class CBattleUI :
+	public Command_Base
 {
 private:
 	bool Active;
@@ -62,7 +64,7 @@ public:
 	void HPVib_Update(std::vector<UI_List> &list,int i);
 	void HBasePVib_Update(std::vector<UI_List>& list, int i);
 
-	void Init();
+	bool Init();
 	void Draw();
 	void Update();
 	//void CreateUI(UI_ID type, float x, float y, float z, float xsize, float ysize, DirectX::XMFLOAT4 color);
@@ -71,21 +73,21 @@ public:
 
 
 	
-	bool IsActive() {
+	/*bool IsActive() {
 		return Active;
-	}
-	static CBattleUI& GetInstance() {
+	}*/
+	/*static CBattleUI& GetInstance() {
 		static CBattleUI Instance;
 		return Instance;
-	}
+	}*/
 
-	//モデルのキーを取得
-	std::shared_ptr<Quad2D> GetUIPtr(UI_ID type) {
-		// 存在するかを確かめる
-		return GetInstance().list[(int)type];
-	}
+	////モデルのキーを取得
+	//std::shared_ptr<Quad2D> GetUIPtr(UI_ID type) {
+	//	// 存在するかを確かめる
+	//	return GetInstance().list[(int)type];
+	//}
 
-	void UIDraw(Quad2D quad[], int i, float x, float y, float width, float height, XMFLOAT2 size, XMFLOAT4 color, XMFLOAT2 uv[4]);
+	//void UIDraw(Quad2D quad[], int i, float x, float y, float width, float height, XMFLOAT2 size, XMFLOAT4 color, XMFLOAT2 uv[4]);
 
 };
 

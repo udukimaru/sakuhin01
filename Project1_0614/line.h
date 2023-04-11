@@ -4,7 +4,7 @@
 #include	<d3d11.h>
 #include	<vector>
 #include	"DX11util.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 
 using Microsoft::WRL::ComPtr;
 

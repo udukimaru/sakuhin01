@@ -13,17 +13,11 @@ public:
 		return val;
 	}
 	// 等速直線運動
-	float Liner(float t, float speed)
+	float liner(float t, float speed)
 	{
 		float x;
 		x = t * speed;
 		return x;
-	}
-	float Pala(float endpos, float x,float t)
-	{
-		float val = 0;
-		val = -(x * x * x)*t;
-		return val;
 	}
 
 	// イーズイン
@@ -37,9 +31,9 @@ public:
 		return 1 + (x - 1) * (x - 1) * (x - 1);
 	}
 
-	float easeOutBack(float x) {
+	/*float easeOutBack(float x) {
 		return 1 - (x - 1) * (x - 1) * (-2.70158 * (x - 1) - 1.70158);
-	}
+	}*/
 
 	// イーズアウト
 	float easeOutElastic(float x)
@@ -48,17 +42,6 @@ public:
 		float period = 0.01f;
 		float val = amplitude * std::pow(2, -3 * x) * std::sinf((x - (period / (2 * 3.14) * std::asin(1 / amplitude))) * (2 * 3.14) / period) + 1;
 
-		//(ELASTIC_AMPLITUDE * math.pow(2, -10 * t) * math.sin((t - (ELASTIC_PERIOD / (2 * math.pi) * math.asin(1 / ELASTIC_AMPLITUDE))) * (2 * math.pi) / ELASTIC_PERIOD) + 1)
-		return val;
-	}
-
-	float backOut(float x)
-	{
-		return 1 - (x - 1) * (x - 1) * (-2.70158 * (x - 1) - 1.70158);
-	}
-
-	float easeOutExpo(float t) {
-		float val = -std::pow(2, -10 * t) + 1;
 		return val;
 	}
 

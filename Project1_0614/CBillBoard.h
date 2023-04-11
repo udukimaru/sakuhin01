@@ -2,7 +2,7 @@
 #include	<directxmath.h>
 #include	<d3d11.h>
 #include	"DX11util.h"
-#include	"Shader.h"
+#include	"Shader1.h"
 /*----------------------------------------------------------------------
 
 	ビルボードクラス	
