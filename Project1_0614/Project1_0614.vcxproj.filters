@@ -153,9 +153,6 @@
     <ClInclude Include="M_Plain.h">
       <Filter>gemaobject\monster</Filter>
     </ClInclude>
-    <ClInclude Include="M_Slime.h">
-      <Filter>gemaobject\monster</Filter>
-    </ClInclude>
     <ClInclude Include="Assimpscene.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -208,6 +205,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Shader1.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CFade.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -308,9 +308,6 @@
     <ClCompile Include="M_Plain.cpp">
       <Filter>gemaobject\monster</Filter>
     </ClCompile>
-    <ClCompile Include="M_Slime.cpp">
-      <Filter>gemaobject\monster</Filter>
-    </ClCompile>
     <ClCompile Include="Assimpscene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -363,6 +360,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Shader1.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CFade.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

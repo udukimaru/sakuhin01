@@ -5,16 +5,12 @@ class CSceneMgr
 public:
 	enum class SCENE_ID {
 		TITLE,
-		MAIN,
 		ENCOUNTER,
 		BATTLE,
 
-		TEST,
-
-		MOTION_EDIT,
 	};
 
-	SCENE_ID ChangeScene(SCENE_ID id);
+	static void ChangeScene(SCENE_ID id);
 
 	SCENE_ID current_scene = SCENE_ID::TITLE;
 	SCENE_ID old_scene;
@@ -25,7 +21,7 @@ public:
 		return &instance;
 	}
 private:
-
+	BaseScene* m_pScene;
 	//static BaseScene* mp_scene;
 };
 

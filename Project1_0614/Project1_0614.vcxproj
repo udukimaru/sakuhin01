@@ -34,6 +34,7 @@
     <ClInclude Include="CCreateString.h" />
     <ClInclude Include="CDirectInput.h" />
     <ClInclude Include="CDirectxGraphics.h" />
+    <ClInclude Include="CFade.h" />
     <ClInclude Include="CFinishSelect.h" />
     <ClInclude Include="CLight.h" />
     <ClInclude Include="CModel.h" />
@@ -67,7 +68,6 @@
     <ClInclude Include="mesh.h" />
     <ClInclude Include="ModelData.h" />
     <ClInclude Include="ModelMgr.h" />
-    <ClInclude Include="M_Slime.h" />
     <ClInclude Include="quad2d.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader1.h" />
@@ -94,6 +94,7 @@
     <ClCompile Include="CCommandSelect.cpp" />
     <ClCompile Include="CCreateString.cpp" />
     <ClCompile Include="CDirectXGraphics.cpp" />
+    <ClCompile Include="CFade.cpp" />
     <ClCompile Include="CFinishSelect.cpp" />
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="CMyMonster.cpp" />
@@ -121,7 +122,6 @@
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="ModelData.cpp" />
     <ClCompile Include="ModelMgr.cpp" />
-    <ClCompile Include="M_Slime.cpp" />
     <ClCompile Include="quad2d.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shader1.cpp" />

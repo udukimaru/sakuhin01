@@ -5,12 +5,12 @@
 
 //BaseScene *CSceneMgr::mp_scene = nullptr;
 
-CSceneMgr::SCENE_ID CSceneMgr::ChangeScene(SCENE_ID id)
-{
-
-	current_scene = id;
-	return current_scene;
-}
+//CSceneMgr::SCENE_ID CSceneMgr::ChangeScene(SCENE_ID id)
+//{
+//
+//	current_scene = id;
+//	return current_scene;
+//}
 
 //void CSceneMgr::Init()
 //{

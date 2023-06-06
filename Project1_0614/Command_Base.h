@@ -49,6 +49,13 @@ public:
 			{1.0f / 2,1.0f}
 	};
 
+	enum class STATE {
+		MOVE,
+		NOMAL,
+		NOMALTOMOVE,
+	};
+	STATE state = STATE::MOVE;
+
 	virtual ~Command_Base() {}
 	virtual bool Init();        // ‰Šú‰»
 	virtual void Update();      // XVˆ—

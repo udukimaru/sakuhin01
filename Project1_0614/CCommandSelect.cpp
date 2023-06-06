@@ -16,38 +16,24 @@ void CCommandSelect::Draw()
 	// コマンド
 	for (int i = 0; i < g_buttunlist.size(); i++)
 	{
-		if (g_buttunlist[i].active == true)
+		if (g_buttunlist[i].active == true)// UIが表示されているとき
 		{
-			if (g_buttunlist[i].on_off == false)
+			if (g_buttunlist[i].on_off == false)//　カーソルがボタンにのってない状態
 			{
 				if (i < 4) { 
 					UIDraw(sp, i, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height, g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_off);
 				}
 			}
-			else
+			else//　カーソルがボタンにのっている状態
 			{
-				if (i < 4) {
-					UIDraw(sp, i, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height,
-						g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
-				}
-				if (i == 0) {
-					UIDraw(sp, 4, g_buttunlist[0].x, g_buttunlist[0].y, g_buttunlist[4].width, g_buttunlist[4].height,
-						g_buttunlist[4].size, g_buttunlist[4].color, g_buttunlist[0].uv_on);
-				}
-				if (i == 1) {
-					UIDraw(sp, 4, g_buttunlist[1].x, g_buttunlist[1].y, g_buttunlist[4].width, g_buttunlist[4].height,
-						g_buttunlist[4].size, g_buttunlist[4].color, g_buttunlist[1].uv_on);
-				}
-				if (i == 2) {
-					UIDraw(sp, 4, g_buttunlist[2].x, g_buttunlist[2].y, g_buttunlist[4].width, g_buttunlist[4].height,
-						g_buttunlist[4].size, g_buttunlist[4].color, g_buttunlist[2].uv_on);
-				}
-				if (i == 3)
-				{
-					UIDraw(sp, 4, g_buttunlist[3].x, g_buttunlist[3].y, g_buttunlist[4].width, g_buttunlist[4].height,
-						g_buttunlist[4].size, g_buttunlist[4].color, g_buttunlist[3].uv_on);
-				}
-
+				// ボタンオンの状態
+				if (i < 4)UIDraw(sp, i, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height, g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
+				// 以下各ボタンの影表示
+				/*if (i == 0)UIDraw(sp, 4, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height,g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
+				if (i == 1)UIDraw(sp, 4, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height,g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
+				if (i == 2)UIDraw(sp, 4, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height,g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
+				if (i == 3)UIDraw(sp, 4, g_buttunlist[i].x, g_buttunlist[i].y, g_buttunlist[i].width, g_buttunlist[i].height,g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);*/
+				if(i>=4 && state == STATE::NOMAL)UIDraw(sp, i, g_buttunlist[i].fixedPos.x, g_buttunlist[i].fixedPos.y, g_buttunlist[i].width, g_buttunlist[i].height, g_buttunlist[i].size, g_buttunlist[i].color, g_buttunlist[i].uv_on);
 			}
 		}
 	}
@@ -55,6 +41,9 @@ void CCommandSelect::Draw()
 
 void CCommandSelect::Update()
 {
+	switch (state)
+	{
+	case STATE::MOVE:
 	for (int i = 0; i < g_buttunlist.size(); i++)
 	{
 		if (g_buttunlist[i].active == true && i < 4) {
@@ -62,24 +51,48 @@ void CCommandSelect::Update()
 			if (i == 1)g_buttunlist[i].t = g_buttunlist[i].t + 0.04f;
 			if (i == 2)g_buttunlist[i].t = g_buttunlist[i].t + 0.03f;
 			if (i == 3)g_buttunlist[i].t = g_buttunlist[i].t + 0.02f;
-			if (i == 4)g_buttunlist[i].t = g_buttunlist[i].t + 0.02f;
+			//if (i == 4)g_buttunlist[i].t = g_buttunlist[i].t + 0.02f;
 
 			g_buttunlist[i].x = CEasing::GetInstance().lerp(1500, 1120, CEasing::GetInstance().easeOutElastic(g_buttunlist[i].t));
 
 
-			if (g_buttunlist[i].x < 1120)
+			if (g_buttunlist[i].x <= g_buttunlist[i].fixedPos.x)
 			{
-				g_buttunlist[i].x = 1120;
-				g_buttunlist[i].wait = true;
+				g_buttunlist[i].x = g_buttunlist[i].fixedPos.x;
+				g_buttunlist[i].t = 0;
+				isupdate = true;
 			}
-			if (g_buttunlist[i].x < g_buttunlist[i].x + 5)
+			if (isupdate == true)
 			{
-				g_buttunlist[i].wait = true;
+				state = STATE::NOMAL;
+				isupdate = false;
 			}
 
 		}
-		else break;
+	}
+		break;
 
+	case STATE::NOMAL:
+		for (int i = 0; i < g_buttunlist.size(); i++)
+		{
+			//if (i < 4) {
+				if (g_buttunlist[i].on_off == true)
+				{
+					g_buttunlist[i].t = g_buttunlist[i].t + 0.06f;
+					g_buttunlist[i].x = CEasing::GetInstance().lerp(1120, 1128, CEasing::GetInstance().easeOutElastic(g_buttunlist[i].t));
+					g_buttunlist[i].y = CEasing::GetInstance().lerp(g_buttunlist[i].fixedPos.y, g_buttunlist[i].fixedPos.y - 8, g_buttunlist[i].t);
+					if (g_buttunlist[i].x > 1128)g_buttunlist[i].x = 1128;
+					if (g_buttunlist[i].fixedPos.y - 8 > g_buttunlist[i].y)g_buttunlist[i].y = g_buttunlist[i].fixedPos.y - 8;
+				}
+				else
+				{
+					g_buttunlist[i].x = g_buttunlist[i].fixedPos.x;
+					g_buttunlist[i].y = g_buttunlist[i].fixedPos.y;
+					g_buttunlist[i].t = 0;
+				}
+			//}
+		}
+		break;
 	}
 }
 

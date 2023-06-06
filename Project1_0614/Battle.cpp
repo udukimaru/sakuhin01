@@ -17,7 +17,6 @@
 #include "ModelMgr.h"
 #include "CBattleUI.h"
 #include "Easing.h"
-#include "CMyMonster.h"
 #include "Encounter.h"
 
 #include "Command_Base.h"
@@ -43,7 +42,7 @@ CMyMonster* cmonster;
 CBag* cbag;
 CFinishSelect* cfinish;
 
-CBattleUI battle_ui;
+CBattleUI* battle_ui;
 
 bool drawhp = false;
 bool drawhpdog = false;
@@ -86,8 +85,8 @@ void DrawHP()
 	plain_damage--;
 	if (plain_damage > 0&& drawhp == true) {
 		g_plain.HP -= 1.0f;
-		battle_ui.uilist[3].size.x = 1.0f * (g_plain.HP / g_plain.GetMAXHP());
-		battle_ui.uilist[3].x = battle_ui.uilist[3].x - (1.0f+0.1f);
+		battle_ui->uilist[3].size.x = 1.0f * (g_plain.HP / g_plain.GetMAXHP());
+		battle_ui->uilist[3].x = battle_ui->uilist[3].x - (1.0f+0.1f);
 		printf("敵HP%f\n", g_plain.HP);
 	}
 	else
@@ -100,8 +99,8 @@ void DrawHPDog()
 	dog_damage--;
 	if (dog_damage > 0 && drawhpdog == true) {
 		g_dog.HP -= 1.0f;
-		battle_ui.uilist[1].size.x = 1.0f * (g_dog.HP / g_dog.GetMAXHP());
-		battle_ui.uilist[1].x= battle_ui.uilist[1].x - (1.0f + 0.1f);
+		battle_ui->uilist[1].size.x = 1.0f * (g_dog.HP / g_dog.GetMAXHP());
+		battle_ui->uilist[1].x= battle_ui->uilist[1].x - (1.0f + 0.1f);
 		printf("敵HP%f\n", g_dog.HP);
 	}
 	else
@@ -131,12 +130,14 @@ void Battle::Init()
 	cfinish = new CFinishSelect;
 	cfinish->Init();
 
+	battle_ui = new CBattleUI;
+	battle_ui->Init();
+
 	g_plain.Init();
 	g_dog.Init();
 	g_skydome.Init();
 	stage.Init();
 
-	battle_ui.Init();
 	
 	// 文字描画
 	FontData* data = new FontData();
@@ -193,7 +194,7 @@ void Battle::Draw()
 	cbag->Draw();
 	cfinish->Draw();
 
-	battle_ui.Draw();
+	battle_ui->Draw();
 	
 	if (textbox[0].text_active == true) {
 		
@@ -207,11 +208,11 @@ void Battle::Draw()
 			write->DrawString(textbox[i].text, textbox[i].pos, D2D1_DRAW_TEXT_OPTIONS_NONE);
 		}
 	}
-	if (battle_ui.uilist[3].active == true) {
+	if (battle_ui->uilist[3].active == true) {
 		monsterSta->DrawString(("Lv. 5"), XMFLOAT2(1060, 200), D2D1_DRAW_TEXT_OPTIONS_NONE);
 		monsterSta->DrawString(("プレイン"), XMFLOAT2(1120, 200), D2D1_DRAW_TEXT_OPTIONS_NONE);
 	}
-	if (battle_ui.uilist[1].active == true) {
+	if (battle_ui->uilist[1].active == true) {
 		monsterSta->DrawString(("Lv. 5"), XMFLOAT2(100, 400), D2D1_DRAW_TEXT_OPTIONS_NONE);
 		monsterSta->DrawString(("イッヌ"), XMFLOAT2(160, 400), D2D1_DRAW_TEXT_OPTIONS_NONE);
 	}
@@ -238,12 +239,11 @@ void Battle::Update()
 	bool keyinput = CDirectInput::GetInstance().GetMouseLButtonCheck();
 	keyinput = false;
 
-	battle_ui.Update();
+	battle_ui->Update();
 
 	for (int i = 0; i < textbox.size(); i++) {
 		if (textbox[i].text_active == true) {
-			//textbox[i].t -= 0.01f;
-			textbox[i].pos.y = textbox[i].pos.y + CEasing::GetInstance().SinVibe(0.5f, 4, battle_ui.uilist[0].t);
+			textbox[i].pos.y = textbox[i].pos.y + CEasing::GetInstance().SinVibe(0.5f, 4, battle_ui->uilist[0].t);
 		}
 	}
 
@@ -255,7 +255,6 @@ void Battle::Update()
 		if (m_TextKeepTime <= 0)
 		{
 			eye = { 5, 6, -5 };
-			//lookat = CCamera::GetInstance()->GetLookat();
 			lookat = { 5,5, 10 };
 
 			CCamera::GetInstance()->SetEye(eye);
@@ -264,9 +263,10 @@ void Battle::Update()
 			CCamera::GetInstance()->CreateProjectionMatrix();
 
 			textbox[0].text_active = true; // ０秒以上経てばテキスト表示
-			for (int i = 1; i < battle_ui.uilist.size(); i++) {
-				battle_ui.uilist[i].active = false;
+			for (int i = 1; i < battle_ui->uilist.size(); i++) {
+				battle_ui->uilist[i].active = false;
 			}
+			
 		}
 		
 		if (++m_TextKeepTime >= 180) {       //180フレームで
@@ -286,10 +286,7 @@ void Battle::Update()
 			CCamera::GetInstance()->CreateCameraMatrix();
 			CCamera::GetInstance()->CreateProjectionMatrix();
 
-
-			for (int i = 0; i < battle_ui.uilist.size(); i++) {
-				battle_ui.uilist[i].active = true;
-			}
+			battle_ui->IsUIActive(true);
 			textbox[5].text_active = true;
 			current_turn = TURN_ID::SELLECT;
 			m_TextKeepTime = 0;
@@ -324,12 +321,12 @@ void Battle::Update()
 			printf("バッグ\n");
 			cbag->SetStartSize();
 		}
-		if (cselect->CheckOnOff(cselect->g_buttunlist) == 3)
-		{
-			// にげる
-			current_turn = TURN_ID::EXIT;
-			printf("にげる\n");
-		}
+		//if (cselect->CheckOnOff(cselect->g_buttunlist) == 3)
+		//{
+		//	// にげる
+		//	current_turn = TURN_ID::EXIT;
+		//	printf("にげる\n");
+		//}
 
 		break;
 	case TURN_ID::COMMAND_SKILL:
@@ -439,13 +436,13 @@ void Battle::Update()
 		if (drawhp == true)
 		{
 			DrawHP();
-			battle_ui.HPVib_Update(battle_ui.uilist,3);
+			battle_ui->HPVib_Update(battle_ui->uilist,3);
 		}
 		else
 		{
-			battle_ui.uilist[3].y = 250.0f;
-			battle_ui.uilist[3].color.x = 0.0f;
-			battle_ui.uilist[3].color.y = 1.0f;
+			battle_ui->uilist[3].y = 250.0f;
+			battle_ui->uilist[3].color.x = 0.0f;
+			battle_ui->uilist[3].color.y = 1.0f;
 		}
 		break;
 
@@ -504,13 +501,13 @@ void Battle::Update()
 		if (drawhpdog == true)
 		{
 			DrawHPDog();
-			battle_ui.HPVib_Update(battle_ui.uilist,1);
+			battle_ui->HPVib_Update(battle_ui->uilist,1);
 		}
 		else
 		{
-			battle_ui.myHPpos.y = 450.0f;
-			battle_ui.uilist[1].color.x = 0.0f;
-			battle_ui.uilist[1].color.y = 1.0f;
+			battle_ui->myHPpos.y = 450.0f;
+			battle_ui->uilist[1].color.x = 0.0f;
+			battle_ui->uilist[1].color.y = 1.0f;
 		}
 		break;
 
@@ -542,9 +539,8 @@ void Battle::Update()
 		cselect->IsUIActive(false);
 		cmonster->IsUIActive(true);
 		cmonster->Update();
-		for (int i = 1; i < battle_ui.uilist.size(); i++) {
-			battle_ui.uilist[i].active = false;
-		}
+
+		battle_ui->IsUIActive(false);
 		textbox[5].text_active = false;
 
 		cmonster->g_monsterlist[0].wait = true;
@@ -555,9 +551,7 @@ void Battle::Update()
 			textbox[5].text_active = true;
 			cmonster->IsUIActive(false);
 
-			for (int i = 1; i < battle_ui.uilist.size(); i++) {
-				battle_ui.uilist[i].active = true;
-			}
+			battle_ui->IsUIActive(true);
 			current_turn = TURN_ID::SELLECT;
 			printf("もどる\n");
 			cselect->SetStartPos();
@@ -578,9 +572,7 @@ void Battle::Update()
 		cbag->IsUIActive(true);
 		cbag->Update();
 		
-		/*for (int i = 1; i < battle_ui.uilist.size(); i++) {
-			battle_ui.uilist[i].active = false;
-		}*/
+		battle_ui->IsUIActive(false);
 		textbox[5].text_active = false;
 
 		cbag->g_baglist[0].wait = true;
@@ -603,10 +595,7 @@ void Battle::Update()
 		
 	case TURN_ID::FINISH:
 		// バトル時のUIをオフにする
-		for (int i = 1; i < battle_ui.uilist.size(); i++)
-		{
-			battle_ui.uilist[i].active = false;
-		}
+		battle_ui->IsUIActive(false);
 		// 仲間にするかどうかの選択肢が出てくる
 
 		cfinish->IsUIActive(true);
@@ -681,6 +670,7 @@ void Battle::Dispose()
 	delete cmonster;
 	delete cbag;
 	delete cfinish;
+	delete battle_ui;
 
 	DX11Uninit();
 }

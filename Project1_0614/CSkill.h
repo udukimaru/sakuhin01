@@ -23,14 +23,15 @@ public:
 		MAX
 	};
 
-	enum class STATE {
+	/*enum class STATE {
 		MOVE,
 		NOMAL,
+		NOMALTOMOVE,
 	};
-	STATE state = STATE:: MOVE;
+	STATE state = STATE:: MOVE;*/
 	using SkillDataList = UIData<COMMAND_SKILL>;
 	Quad2D skill[(int)COMMAND_SKILL::MAX];
-
+	XMFLOAT2 move[(int)COMMAND_SKILL::MAX];
 	// ‹Z
 	std::vector<SkillDataList> g_skilllist = {
 		{COMMAND_SKILL::ATTACK,"assets/UI/Battle/Command/Skill/‹Z1.png",1120, 390,220,150,{1,1}, {1,1,1,1},false,
@@ -68,6 +69,7 @@ public:
 		{
 			g_skilllist[i].t = 0.0f;
 			g_skilllist[i].x = 1500.0f;
+			g_skilllist[i].y = g_skilllist[i].fixedPos.y;
 		}
 	}
 	void SetState()
