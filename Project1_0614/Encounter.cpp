@@ -10,6 +10,7 @@
 #include "CCollider.h"
 #include "CSceneMgr.h"
 #include "Battle.h"
+//#include "GameMain.h"
 
 //#include "AnimatedHero.h"
 
@@ -23,6 +24,8 @@ CPlayer m_player;
 CBillBoard g_billboard[15];
 
 Stage g_stage;
+
+//GameMain game;
 
 //SceneManager	manager;
 //enum class GAMESTATUS {
@@ -141,6 +144,8 @@ void Encounter::Update()
 
 		if (res == true)
 		{
+			//game.Current_scene = GameMain::SCENE::SCENE_FADE;
+			//game.ChangeScene(GameMain::SCENE::SCENE_BATTLE_INIT);
 			change = true;
 			//manager.changeScene<Battle>("Ending", 1000, false);
 			/*XMFLOAT3 eye(0, 20, -25);

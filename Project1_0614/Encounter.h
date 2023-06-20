@@ -16,7 +16,7 @@ public:
 
 	bool change = false;
 
-	bool EncToBattle() {
+	bool &EncToBattle() {
 		return change;
 	}
 	/*static Encounter& GetInstance() {

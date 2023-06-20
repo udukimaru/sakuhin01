@@ -38,7 +38,7 @@ protected:
     Skill_ID waza3;
     Skill_ID waza4;
 
-    float attack_power;
+    int attack_power;
     float defense_power;
     float speed;
     float HP;
@@ -105,6 +105,10 @@ public:
     
     TYPE GetType() {
         return type1;
+    }
+    template<typename T>
+    int &MAttackDamage(T monster) {
+        return monster.attack_power;
     }
     static CMonsterMgr* GetInstance() {
         static CMonsterMgr Instance;

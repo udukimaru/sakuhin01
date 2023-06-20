@@ -16,7 +16,7 @@
 #include "Application.h"
 #include "CWindow.h"
 #include "macro.h"
-#include "game.h"
+//#include "game.h"
 #include "CCamera.h"
 #include "DX11Settransform.h"
 #include "dx11mathutil.h"
@@ -25,6 +25,7 @@
 #include "CTitle.h"
 #include "Battle.h"
 #include "CSceneMgr.h"
+#include "GameMain.h"
 
 //-----------------------------------------------------------------------------
 // スタティック　メンバー
@@ -45,6 +46,7 @@ uint32_t			Application::SYSTEM_HEIGHT = 0;
 
 const float			Application::FPS = 60;
 
+GameMain* game;
 //==============================================================================
 //!	@fn		CApplication
 //!	@brief	コンストラクタ
@@ -200,7 +202,9 @@ unsigned long Application :: MainLoop()
 
 
 	// ゲームの初期処理
-	GameInit();
+	game = new GameMain();
+	game->GameInit();
+	//GameInit();
 	//CTitle::GetInstance().Init();
 
 	// タイマ解像度をミリ秒に
@@ -240,9 +244,13 @@ unsigned long Application :: MainLoop()
 		//	Test::GetInstance().Draw();
 		//	break;
 		//}
-		GameInput(delta_time);		// ｹﾞｰﾑ入力	
-		GameUpdate(delta_time);		// ｹﾞｰﾑ更新
-		GameRender(delta_time);		// ｹﾞｰﾑ描画
+
+		game->GameInput(delta_time);
+		game->GameUpdate(delta_time);
+		game->GameRender(delta_time);
+		//GameInput(delta_time);		// ｹﾞｰﾑ入力	
+		//GameUpdate(delta_time);		// ｹﾞｰﾑ更新
+		//GameRender(delta_time);		// ｹﾞｰﾑ描画
 
 		int64_t sleep_time = 16666 - delta_time;
 
@@ -258,7 +266,8 @@ unsigned long Application :: MainLoop()
 	::timeEndPeriod(1);
 
 	// ゲームの終了処理
-	GameDispose();
+	game->GameDispose();
+	//GameDispose();
 	/*switch (CSceneMgr::GetInstance()->current_scene)
 	{
 	case CSceneMgr::SCENE_ID::TITLE:

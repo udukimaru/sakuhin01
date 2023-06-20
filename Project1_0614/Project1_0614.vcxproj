@@ -44,6 +44,7 @@
     <ClInclude Include="CTitleUI.h" />
     <ClInclude Include="CUI.h" />
     <ClInclude Include="Easing.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="M_Plain.h" />
     <ClInclude Include="M_Dog.h" />
@@ -102,6 +103,7 @@
     <ClCompile Include="CSkill.cpp" />
     <ClCompile Include="CTitleUI.cpp" />
     <ClCompile Include="CUI.cpp" />
+    <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="M_Plain.cpp" />
     <ClCompile Include="M_Dog.cpp" />

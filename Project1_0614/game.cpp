@@ -8,7 +8,7 @@
 #include "CDirectInput.h"
 #include "CTitle.h"
 #include "Encounter.h"
-#include "CSceneMgr.h"
+//#include "CSceneMgr.h"
 #include "game.h"
 #include "Battle.h"
 #include "SceneManager.h"
@@ -16,18 +16,20 @@
 #include "CPlayer.h"
 #include "CCollider.h"
 #include "CCommand.h"
+#include "CFade.h"
 
 #include <thread>
 
 CTitle title;
 Encounter enc;
 Battle battle;
-//SceneManager	g_manager;
 M_Plain plain;
 CPlayer pl;
 
 CCommand com;
 float game_time = 0.0f;
+
+CFade game_fade;
 
 void GameInit() {
 	// DX11初期化
@@ -71,8 +73,8 @@ void GameInit() {
 	// 空中戦初期化
 	//Encounter::GetInstance().Init();
 	//CTitle::GetInstance().Init();
-	title.Init();
-
+	//title.Init();
+	//mnext_scene = SCENE::SCENE_TITLE_INIT;
 	// アルファブレンド有効化
 	TurnOnAlphablend();
 
@@ -96,6 +98,40 @@ void GameInput(uint64_t dt) {
 void GameUpdate(uint64_t dt) {
 
 	title.Update();
+
+	/*switch (mcurrent_scene)
+	{
+	case SCENE::SCENE_TITLE_INIT:
+		title.Init();
+		break;
+	case SCENE::SCENE_TITLE:
+		title.Update();
+		break;
+	case SCENE::SCENE_ENCOUNTER_INIT:
+		enc.Init();
+		break;
+	case SCENE::SCENE_ENCOUNTER:
+		enc.Update();
+		break;
+	case SCENE::SCENE_BATTLE_INIT:
+		battle.Init();
+		break;
+	case SCENE::SCENE_BATTLE:
+		battle.Update();
+		break;
+	case SCENE::SCENE_GAMECLEAR_START:
+		break;
+	case SCENE::SCENE_GAMECLEAR:
+		break;
+	case SCENE::SCENE_GAMEOVER_START:
+		break;
+	case SCENE::SCENE_GAMEOVER:
+		break;
+	case SCENE::SCENE_FADE:
+		break;
+	default:
+		break;
+	}*/
 	// キー入力で遷移
 	/*if (CDirectInput::GetInstance().GetMouseLButtonTrigger()) {
 
@@ -187,7 +223,38 @@ void GameRender(uint64_t dt) {
 	//Encounter::GetInstance().Draw();
 	//CTitle::GetInstance().Draw();
 	//CSceneMgr::Render();
-	title.Draw();
+	//title.Draw();
+
+	/*switch (mcurrent_scene)
+	{
+	case SCENE::SCENE_TITLE_INIT:
+		break;
+	case SCENE::SCENE_TITLE:
+		title.Draw();
+		break;
+	case SCENE::SCENE_ENCOUNTER_INIT:
+		break;
+	case SCENE::SCENE_ENCOUNTER:
+		enc.Draw();
+		break;
+	case SCENE::SCENE_BATTLE_INIT:
+		break;
+	case SCENE::SCENE_BATTLE:
+		battle.Draw();
+		break;
+	case SCENE::SCENE_GAMECLEAR_START:
+		break;
+	case SCENE::SCENE_GAMECLEAR:
+		break;
+	case SCENE::SCENE_GAMEOVER_START:
+		break;
+	case SCENE::SCENE_GAMEOVER:
+		break;
+	case SCENE::SCENE_FADE:
+		break;
+	default:
+		break;
+	}*/
 	// 描画後処理
 	DX11AfterRender();
 }

@@ -204,12 +204,12 @@ void M_Plain::Finalize()
 
 int M_Plain::AttackDamage()
 {
-    int damage;
+    //int damage;
     std::random_device rand_dev;
     std::mt19937 m_mt(rand_dev());
     std::uniform_int_distribution<> rand100(10, 15);
-    damage = rand100(m_mt);
-    printf("“GUŒ‚—Í%d\n", damage);
+    attack_power = rand100(m_mt);
+    printf("“GUŒ‚—Í%d\n", attack_power);
 
-    return damage;
+    return attack_power;
 }

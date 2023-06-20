@@ -10,18 +10,27 @@ public:
 
 	};
 
-	static void ChangeScene(SCENE_ID id);
-
 	SCENE_ID current_scene = SCENE_ID::TITLE;
 	SCENE_ID old_scene;
 	SCENE_ID next_scene;
+
+	void ChangeScene(SCENE_ID id)
+	{
+		current_scene = id;
+	}
+
+	SCENE_ID Change(SCENE_ID id)
+	{
+
+	}
+
 
 	static CSceneMgr* GetInstance() {
 		static CSceneMgr instance;
 		return &instance;
 	}
 private:
-	BaseScene* m_pScene;
+	//BaseScene* m_pScene;
 	//static BaseScene* mp_scene;
 };
 

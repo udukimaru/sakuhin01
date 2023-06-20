@@ -17,9 +17,9 @@ public:
 	void Update();
 	void Dispose();
 
-	bool FinishBattle()
+	bool &FinishBattle()
 	{
-		return &is_finish;
+		return is_finish;
 	}
 	// バトル開始から大まかな流れ
 	enum class TURN_ID {

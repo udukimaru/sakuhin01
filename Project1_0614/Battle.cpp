@@ -27,11 +27,14 @@
 #include "CFinishSelect.h"
 
 
-CPlayer g_player;
+//CPlayer* g_player;
 M_Plain g_plain;
 M_Dog g_dog;
 CSkydome g_skydome;
 Stage stage;
+
+M_Dog* m_dog;
+//CMonsterMgr* monsters;
 
 CCreateString* write;
 CCreateString* monsterSta;
@@ -80,8 +83,25 @@ void TextClear()
 	}
 }
 
+void DrawHP_a()
+{
+	g_plain.MAttackDamage(m_dog);
+	plain_damage--;
+	if (plain_damage > 0 && drawhp == true) {
+		g_plain.HP -= 1.0f;
+		battle_ui->uilist[3].size.x = 1.0f * (g_plain.HP / g_plain.GetMAXHP());
+		battle_ui->uilist[3].x = battle_ui->uilist[3].x - (1.0f + 0.1f);
+		printf("“GHP%f\n", g_plain.HP);
+	}
+	else
+	{
+		drawhp = false;
+	}
+}
+
 void DrawHP()
 {
+	//g_plain.MAttackDamage(g_dog);
 	plain_damage--;
 	if (plain_damage > 0&& drawhp == true) {
 		g_plain.HP -= 1.0f;
@@ -138,6 +158,10 @@ void Battle::Init()
 	g_skydome.Init();
 	stage.Init();
 
+
+	is_finish = false;
+	//monsters = new CMonsterMgr;
+	//monsters->Init();
 	
 	// •¶Žš•`‰æ
 	FontData* data = new FontData();
@@ -321,12 +345,12 @@ void Battle::Update()
 			printf("ƒoƒbƒO\n");
 			cbag->SetStartSize();
 		}
-		//if (cselect->CheckOnOff(cselect->g_buttunlist) == 3)
-		//{
-		//	// ‚É‚°‚é
-		//	current_turn = TURN_ID::EXIT;
-		//	printf("‚É‚°‚é\n");
-		//}
+		if (cselect->CheckOnOff(cselect->g_buttunlist) == 3)
+		{
+			// ‚É‚°‚é
+			current_turn = TURN_ID::EXIT;
+			printf("‚É‚°‚é\n");
+		}
 
 		break;
 	case TURN_ID::COMMAND_SKILL:
@@ -657,7 +681,7 @@ void Battle::Update()
 
 void Battle::Dispose()
 {
-	g_player.Finalize();
+	//g_player->Finalize();
 	g_plain.Finalize();
 	g_dog.Finalize();
 	g_skydome.Finalize();
